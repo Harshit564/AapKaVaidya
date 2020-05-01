@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:aapkavaidya/pages/about_page.dart';
 import 'package:aapkavaidya/pages/my_profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:share/share.dart';
@@ -176,9 +177,9 @@ This is to check the offset of the menu Icon in top left corner.
             },
           ),
           ListTile(
-            leading: Icon(Icons.local_hospital, color: Colors.white),
+            leading: Icon(Icons.account_box, color: Colors.white),
             title: Text(
-              'Types of vaccines',
+              'About Us',
               style: TextStyle(
                 color: Colors.white,
               ),
@@ -187,7 +188,7 @@ This is to check the offset of the menu Icon in top left corner.
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => MyProfilePage(),
+                  builder: (context) => AboutPage(),
                 ),
               );
               // Update the state of the app.
@@ -212,6 +213,48 @@ This is to check the offset of the menu Icon in top left corner.
               // Update the state of the app.
               // ...
             },
+          ),
+          ListTile(
+            leading: Icon(Icons.person, color: Colors.white),
+            title: Text(
+              'Profile Page',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MyProfilePage(),
+                ),
+              );
+              // Update the state of the app.
+              // ...
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.track_changes, color: Colors.white),
+            title: Text(
+              'Covid19 Tracker',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MyProfilePage(),
+                ),
+              );
+              // Update the state of the app.
+              // ...
+            },
+          ),
+          Divider(
+            thickness: 2.0,
+            color: Colors.white,
           ),
           ListTile(
             leading: Icon(Icons.share, color: Colors.white),

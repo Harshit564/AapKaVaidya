@@ -1,10 +1,15 @@
+import 'package:aapkavaidya/constants.dart';
 import 'package:aapkavaidya/drawer/drawer.dart';
-import 'package:aapkavaidya/widgets/theme.dart';
+import 'package:aapkavaidya/pages/discussions.dart';
+import 'package:aapkavaidya/pages/relax_zone_page.dart';
+import 'package:aapkavaidya/widgets/custom_shape.dart';
+import 'package:aapkavaidya/models/treatment_slides.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:provider/provider.dart';
 
-enum SingingCharacter { light, dark, fault }
+import 'dashboard_page.dart';
+import 'extras_page.dart';
 
 class HomePage extends StatefulWidget {
   static const String routeName = "/home-page";
@@ -14,118 +19,115 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final List<Map<String, Object>> _pages = [
+    {
+      'page': DashboardPage(),
+      'appBarTitle': 'Dashboard',
+    },
+    {
+      'page': DiscussionsPage(),
+      'appBarTitle': 'Discussions',
+    },
+    {
+      'page': ExtrasPage(),
+      'appBarTitle': 'Extras',
+    },
+    {
+      'page': RelaxZonePage(),
+      'appBarTitle': 'Relax Zone',
+    },
+  ];
 
-  SingingCharacter _character = SingingCharacter.light;
+  int _selectedPageIndex = 0;
 
-  Future<bool> _onSettingsButtonsPressed(BuildContext context) {
-    ThemeChanger _themeChanger = Provider.of<ThemeChanger>(context);
-    return showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (BuildContext context) {
-          return new AlertDialog(
-            title: Text(
-              'Change the theme',
-              textAlign: TextAlign.center,
-            ),
-            content: Container(
-              height: 200,
-              child: Column(children: [
-                ListTile(
-                  title: Text(
-                    "Dark",
-                  ),
-                  leading: Icon(
-                    Feather.moon,
-                    //    color: Colors.black
-                  ),
-                  trailing: Radio(
-                    value: SingingCharacter.dark,
-                    groupValue: _character,
-                    activeColor: Color(0xff5cb3bc),
-                    onChanged: (SingingCharacter value) {
-                      setState(() {
-                        _character = value;
-                        _themeChanger.setTheme(ThemeData.dark());
-                      });
-                    },
-                  ),
-                ),
-                Divider(
-                  thickness: 3.0,
-                ),
-                ListTile(
-                  title: Text(
-                    "Light",
-                  ),
-                  leading: Icon(
-                    Feather.sun,
-                    //    color: Colors.black
-                  ),
-                  trailing: Radio(
-                    //hoverColor: Color(0xffCBE7EA),
-                    value: SingingCharacter.light,
-                    groupValue: _character,
-                    activeColor: Color(0xff5cb3bc),
-                    onChanged: (SingingCharacter value) {
-                      setState(() {
-                        _character = value;
-                        _themeChanger.setTheme(
-                            ThemeData(primaryColor: Color(0xffCBE7EA)));
-                      });
-                    },
-                  ),
-                ),
-                Divider(
-                  thickness: 3.0,
-                ),
-                ListTile(
-                  title: Text(
-                    "Custom",
-                    style: TextStyle(
-                        //    color: Color(0xff5cb3bc),
-                        ),
-                  ),
-                  leading: Icon(
-                    Feather.activity,
-                    //color: Colors.black
-                  ),
-                  trailing: Radio(
-                    value: SingingCharacter.fault,
-                    groupValue: _character,
-                    activeColor: Color(0xff5cb3bc),
-                    onChanged: (SingingCharacter value) {
-                      setState(() {
-                        _character = value;
-                        _themeChanger.setTheme(
-                            ThemeData(primaryColor: Color(0xff5cb3bc)));
-                      });
-                    },
-                  ),
-                ),
-              ]),
-            ),
-          );
-        });
+  void _selectPage(int index) {
+    setState(() {
+      _selectedPageIndex = index;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[100],
       appBar: AppBar(
-        title: Text('Dashboard'),
+        backgroundColor: Colors.black,
+        title: Text(
+          _pages[_selectedPageIndex]['appBarTitle'],
+          style: TextStyle(
+              color: Colors.greenAccent,
+              fontWeight: FontWeight.bold,
+              fontSize: 20.0),
+        ),
         centerTitle: true,
         actions: <Widget>[
           IconButton(
-            icon: Icon(Feather.settings),
-            onPressed: () => _onSettingsButtonsPressed(context),
-            tooltip: "Log Out",
-          ),
+            onPressed: () => null,
+            icon: Icon(
+              Feather.settings,
+              color: Colors.white,
+            ),
+          )
         ],
       ),
-      body: new Container(
-      ),
       drawer: GuillotineMenu(),
+      body: _pages[_selectedPageIndex]['page'],
+      bottomNavigationBar: Container(
+        height: 60,
+        child: BottomNavigationBar(
+          currentIndex: _selectedPageIndex,
+          onTap: _selectPage,
+          type: BottomNavigationBarType.shifting,
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              backgroundColor: Colors.black,
+              icon: Icon(
+                Icons.home,
+                //color: Colors.grey,
+              ),
+              title: Text(
+                "Dashboard",
+                // style: TextStyle(color: Colors.grey),
+              ),
+            ),
+            BottomNavigationBarItem(
+              backgroundColor: Colors.black,
+              icon: Icon(
+                Icons.message,
+                // color: Colors.grey,
+              ),
+              title: Text(
+                "Consults",
+                //style: TextStyle(color: Colors.grey),
+              ),
+            ),
+            BottomNavigationBarItem(
+              backgroundColor: Colors.black,
+              icon: Icon(
+                Icons.category,
+                //color: Colors.grey,
+              ),
+              title: Text(
+                "Extras",
+                //style: TextStyle(color: Colors.grey),
+              ),
+            ),
+            BottomNavigationBarItem(
+              backgroundColor: Colors.black,
+              icon: Icon(
+                Icons.videogame_asset,
+                //  color: Colors.grey,
+              ),
+              title: Text(
+                "Relax Zone",
+                //style: TextStyle(color: Colors.grey),
+              ),
+            ),
+          ],
+          unselectedItemColor: Colors.grey,
+          selectedItemColor: Colors.greenAccent,
+        ),
+      ),
     );
   }
 }

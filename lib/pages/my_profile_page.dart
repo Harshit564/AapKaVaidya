@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import 'login_page.dart';
@@ -36,13 +35,16 @@ class _MyProfilePageState extends State<MyProfilePage> {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black,
         title: Text(
           "Profile Page",
           style: TextStyle(
             fontSize: 20.0,
-            fontWeight: FontWeight.bold
+            fontWeight: FontWeight.bold,
+              color: Colors.greenAccent
           ),
         ),
+        centerTitle: true,
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.exit_to_app),

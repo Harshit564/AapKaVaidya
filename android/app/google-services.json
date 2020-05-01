@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "347098239635",
+    "firebase_url": "https://aapkavaidya.firebaseio.com",
+    "project_id": "aapkavaidya",
+    "storage_bucket": "aapkavaidya.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347098239635:android:0e4428564885782d597366",
+        "android_client_info": {
+          "package_name": "com.masky.aapkavaidya"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "347098239635-jrcs0g1mia6b9a4l1u681u3ahmlq70oo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.masky.aapkavaidya",
+            "certificate_hash": "075b9504d4968f52efb06dcad51cf2a8d16ca93c"
+          }
+        },
+        {
+          "client_id": "347098239635-mhssulmbovja90nmqo886krsavfmbtkr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHtAva01G8QXWmulCJefvJBDtFRn1M9Mg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "347098239635-mhssulmbovja90nmqo886krsavfmbtkr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,3 +1,4 @@
+import 'package:aapkavaidya/minigameminesweeper/minesweeper.dart';
 import 'package:aapkavaidya/pages/about_page.dart';
 import 'package:aapkavaidya/pages/dashboard_page.dart';
 import 'package:aapkavaidya/pages/discussions.dart';
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
         ExtrasPage.routeName: (context) => ExtrasPage(),
         RelaxZonePage.routeName: (context) => RelaxZonePage(),
         DashboardPage.routeName: (context) => DashboardPage(),
+        MinesweeperGame.routeName: (context) => MinesweeperGame(),
       },
     );
   }

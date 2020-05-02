@@ -1,10 +1,51 @@
+import 'dart:async';
+
+import 'package:aapkavaidya/pages/home_page.dart';
 import 'package:aapkavaidya/pages/login_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:aapkavaidya/utils/info.dart';
 import 'package:aapkavaidya/utils/mypainter.dart';
 
-class PageTwo extends StatelessWidget {
+class PageTwo extends StatefulWidget {
+  @override
+  _PageTwoState createState() => _PageTwoState();
+}
+
+class _PageTwoState extends State<PageTwo> {
+  final _userRef = Firestore.instance.collection("users");
+
+  @override
+  void initState() {
+    super.initState();
+    startTime();
+  }
+
+  startTime() async {
+    var _duration = new Duration(seconds: 3);
+    return Timer(_duration, navigationPage);
+  }
+
+  void navigationPage() async {
+    FirebaseUser user = await FirebaseAuth.instance.currentUser();
+
+    if (user == null) {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (context) => LoginPage(),
+        ),
+      );
+    } else {
+      _userRef.document(user.uid).get().then((DocumentSnapshot snapshot) {
+        if (snapshot.data != null)
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => HomePage()));
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -40,9 +81,18 @@ class PageTwo extends StatelessWidget {
                             color: Colors.black),
                       ),
                       GestureDetector(
-                        onTap: (){
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => LoginPage()));
+                        onTap: () {
+                          if (_userRef == null)
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LoginPage()),
+                            );
+                          else
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HomePage()));
                         },
                         child: Text(
                           'Skip',

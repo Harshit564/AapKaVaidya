@@ -7,10 +7,12 @@ class DiscussionsPage extends StatefulWidget {
 }
 
 class _DiscussionsPageState extends State<DiscussionsPage> {
+
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.deepPurple,
+      color: Colors.blue,
     );
   }
 }

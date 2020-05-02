@@ -11,7 +11,6 @@ class AboutPage extends StatefulWidget {
 }
 
 class _AboutPageState extends State<AboutPage> {
-
   String launchUrl = "";
 
   Future<dynamic> _launchUrl(String url) async {
@@ -24,6 +23,7 @@ class _AboutPageState extends State<AboutPage> {
       throw 'Could not launch $launchUrl';
     }
   }
+
   _launchgmail() async {
     const url =
         'mailto:harshitsingh15967@gmail.com?subject=Feedback&body=Feedback for Our Support';
@@ -38,8 +38,7 @@ class _AboutPageState extends State<AboutPage> {
     await FlutterShare.share(
         title: 'AapKaVaidya Apps share',
         text: 'Download AapKaVaidya Android application',
-        linkUrl:
-        'https://play.google.com/',
+        linkUrl: 'https://play.google.com/',
         chooserTitle: 'AapKaVaidya Chooser Title');
   }
 
@@ -55,10 +54,12 @@ class _AboutPageState extends State<AboutPage> {
         barrierDismissible: false,
         builder: (BuildContext context) {
           return new AlertDialog(
+            backgroundColor: Colors.black,
             title: Text(
               'Follow Us On',
               textAlign: TextAlign.center,
               style: TextStyle(
+                color: Colors.greenAccent,
                 fontFamily: 'Montserrat',
               ),
             ),
@@ -69,60 +70,72 @@ class _AboutPageState extends State<AboutPage> {
                   title: Text(
                     "Facebook",
                     style: TextStyle(
+                      color: Colors.white,
                       fontFamily: 'Montserrat',
                       //color: Color(0xff5cb3bc)
                     ),
                   ),
                   leading: CircleAvatar(
-                    backgroundColor: Colors.black,
+                    backgroundColor: Colors.greenAccent,
                     child: IconButton(
-                      icon: Icon(Feather.facebook,
-                        color: Colors.greenAccent,),
+                      icon: Icon(
+                        Feather.facebook,
+                        color: Colors.black,
+                      ),
                       onPressed: () => _launchUrl(''),
                     ),
                   ),
                 ),
                 Divider(
-                  thickness: 3.0,
+                  color: Colors.greenAccent,
+                  thickness: 2.0,
                 ),
                 ListTile(
                   title: Text(
                     "LinkedIn",
                     style: TextStyle(
+                      color: Colors.white,
                       fontFamily: 'Montserrat',
                       //color: Color(0xff5cb3bc)
                     ),
                   ),
                   leading: CircleAvatar(
-                    backgroundColor: Colors.black,
+                    backgroundColor: Colors.greenAccent,
                     child: IconButton(
-                      icon: Icon(Feather.linkedin,
-                        color: Colors.greenAccent,),
+                      icon: Icon(
+                        Feather.linkedin,
+                        color: Colors.black,
+                      ),
                       onPressed: () => _launchUrl(''),
                     ),
                   ),
                 ),
                 Divider(
-                  thickness: 3.0,
+                  color: Colors.greenAccent,
+                  thickness: 2.0,
                 ),
                 ListTile(
                   title: Text(
                     "Instagram",
                     style: TextStyle(
-                      //    color: Color(0xff5cb3bc),
+                        color: Colors.white,
+                        //    color: Color(0xff5cb3bc),
                         fontFamily: 'Montserrat'),
                   ),
                   leading: CircleAvatar(
-                    backgroundColor: Colors.black,
+                    backgroundColor: Colors.greenAccent,
                     child: IconButton(
-                      icon: Icon(Feather.instagram,
-                        color: Colors.greenAccent,),
+                      icon: Icon(
+                        Feather.instagram,
+                        color: Colors.black,
+                      ),
                       onPressed: () => _launchUrl(''),
                     ),
                   ),
                 ),
                 Divider(
-                  thickness: 3.0,
+                  color: Colors.greenAccent,
+                  thickness: 2.0,
                 )
               ]),
             ),
@@ -135,10 +148,12 @@ class _AboutPageState extends State<AboutPage> {
                       width: 12,
                     ),
                     CircleAvatar(
-                      backgroundColor: Colors.black,
+                      backgroundColor: Colors.greenAccent,
                       child: IconButton(
-                        icon: Icon(Icons.share,
-                          color: Colors.greenAccent,),
+                        icon: Icon(
+                          Icons.share,
+                          color: Colors.black,
+                        ),
                         onPressed: sharer,
                       ),
                     ),
@@ -146,10 +161,12 @@ class _AboutPageState extends State<AboutPage> {
                       width: 12,
                     ),
                     CircleAvatar(
-                      backgroundColor: Colors.black,
+                      backgroundColor: Colors.greenAccent,
                       child: IconButton(
-                        icon: Icon(Icons.feedback,
-                          color: Colors.greenAccent,),
+                        icon: Icon(
+                          Icons.feedback,
+                          color: Colors.black,
+                        ),
                         onPressed: () => _launchgmail(),
                       ),
                     )

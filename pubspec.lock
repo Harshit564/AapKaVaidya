@@ -22,6 +22,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.4.0"
+  audioplayers:
+    dependency: transitive
+    description:
+      name: audioplayers
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.10.1"
   boolean_selector:
     dependency: transitive
     description:
@@ -29,13 +36,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.5"
+  box2d_flame:
+    dependency: transitive
+    description:
+      name: box2d_flame
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.4.5"
   cached_network_image:
     dependency: "direct main"
     description:
       name: cached_network_image
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.0"
+    version: "0.8.0"
   charcode:
     dependency: transitive
     description:
@@ -43,13 +57,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.2"
-  clock:
-    dependency: transitive
-    description:
-      name: clock
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.1"
   cloud_firestore:
     dependency: "direct main"
     description:
@@ -120,13 +127,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.3"
-  file:
-    dependency: transitive
-    description:
-      name: file
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "5.1.0"
   firebase:
     dependency: transitive
     description:
@@ -183,6 +183,38 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.5"
+  firebase_storage:
+    dependency: "direct main"
+    description:
+      name: firebase_storage
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.1.5"
+  flame:
+    dependency: "direct main"
+    description:
+      name: flame
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.12.2"
+  flare_dart:
+    dependency: transitive
+    description:
+      path: flare_dart
+      ref: dev
+      resolved-ref: "64510c5723c8fafdd83dde9b88468bc78b2a5b47"
+      url: "git://github.com/2d-inc/Flare-Flutter.git"
+    source: git
+    version: "2.3.3"
+  flare_flutter:
+    dependency: transitive
+    description:
+      path: flare_flutter
+      ref: dev
+      resolved-ref: "64510c5723c8fafdd83dde9b88468bc78b2a5b47"
+      url: "git://github.com/2d-inc/Flare-Flutter.git"
+    source: git
+    version: "2.0.1"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -201,7 +233,7 @@ packages:
       name: flutter_cache_manager
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.2"
+    version: "0.3.2"
   flutter_custom_clippers:
     dependency: "direct main"
     description:
@@ -223,6 +255,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.7.5"
+  flutter_plugin_android_lifecycle:
+    dependency: transitive
+    description:
+      name: flutter_plugin_android_lifecycle
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.7"
   flutter_share:
     dependency: "direct main"
     description:
@@ -230,6 +269,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2+1"
+  flutter_svg:
+    dependency: transitive
+    description:
+      name: flutter_svg
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.13.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -246,14 +292,7 @@ packages:
       name: fluttertoast
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.1.3"
-  google_nav_bar:
-    dependency: "direct main"
-    description:
-      name: google_nav_bar
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.2.0"
+    version: "4.0.1"
   google_sign_in:
     dependency: "direct main"
     description:
@@ -276,7 +315,7 @@ packages:
     source: hosted
     version: "0.9.1"
   http:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: http
       url: "https://pub.dartlang.org"
@@ -296,13 +335,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.4"
-  intl:
-    dependency: transitive
+  image_picker:
+    dependency: "direct main"
     description:
-      name: intl
+      name: image_picker
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.16.1"
+    version: "0.6.5+3"
   js:
     dependency: transitive
     description:
@@ -310,13 +349,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.1+1"
-  line_icons:
+  link:
     dependency: "direct main"
     description:
-      name: line_icons
+      name: link
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.0"
+    version: "1.1.0"
   liquid_swipe:
     dependency: "direct main"
     description:
@@ -338,6 +377,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.8"
+  music_player:
+    dependency: "direct main"
+    description:
+      name: music_player
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.4"
+  ordered_set:
+    dependency: transitive
+    description:
+      name: ordered_set
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.5"
   path:
     dependency: transitive
     description:
@@ -345,27 +398,27 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.6.4"
-  path_provider:
+  path_drawing:
     dependency: transitive
+    description:
+      name: path_drawing
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.4.1"
+  path_parsing:
+    dependency: transitive
+    description:
+      name: path_parsing
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.4"
+  path_provider:
+    dependency: "direct main"
     description:
       name: path_provider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.6.7"
-  path_provider_macos:
-    dependency: transitive
-    description:
-      name: path_provider_macos
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.4+1"
-  path_provider_platform_interface:
-    dependency: transitive
-    description:
-      name: path_provider_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.1"
+    version: "0.5.0+1"
   pedantic:
     dependency: transitive
     description:
@@ -380,13 +433,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.4.0"
-  platform:
-    dependency: transitive
-    description:
-      name: platform
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.2.1"
   plugin_platform_interface:
     dependency: transitive
     description:
@@ -415,13 +461,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.3"
-  rxdart:
-    dependency: transitive
-    description:
-      name: rxdart
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.24.0"
   share:
     dependency: "direct main"
     description:
@@ -525,13 +564,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.11"
-  toast:
-    dependency: "direct main"
+  tiled:
+    dependency: transitive
     description:
-      name: toast
+      name: tiled
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.5"
+    version: "0.2.1"
   typed_data:
     dependency: transitive
     description:
@@ -581,6 +620,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.8"
+  webview_media:
+    dependency: transitive
+    description:
+      name: webview_media
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.2"
   xml:
     dependency: transitive
     description:
@@ -595,6 +641,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.1"
+  youtube_player_flutter:
+    dependency: "direct main"
+    description:
+      name: youtube_player_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "6.1.0+7"
 sdks:
   dart: ">=2.7.0 <3.0.0"
   flutter: ">=1.12.13+hotfix.5 <2.0.0"

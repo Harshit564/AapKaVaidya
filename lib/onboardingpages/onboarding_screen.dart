@@ -29,12 +29,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   ];
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      routes: <String, WidgetBuilder>{
-        '/login-page': (BuildContext context) => new LoginPage()
-      },
-      home: Scaffold(
+    return  Scaffold(
         body: LiquidSwipe(
           pages: pages,
           fullTransitionValue: 500,
@@ -49,7 +44,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           ),
           initialPage: 0,
         ),
-      ),
     );
   }
 }

@@ -1,14 +1,8 @@
 import 'package:aapkavaidya/constants.dart';
-import 'package:aapkavaidya/pages/discussions.dart';
-import 'package:aapkavaidya/pages/relax_zone_page.dart';
-import 'package:aapkavaidya/widgets/custom_shape.dart';
 import 'package:aapkavaidya/models/treatment_slides.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:flutter_icons/flutter_icons.dart';
-
-import 'extras_page.dart';
-import 'home_page.dart';
+import 'package:link/link.dart';
 
 enum VisibilityFlag {
   visible,
@@ -56,18 +50,26 @@ class _DashboardPageState extends State<DashboardPage> {
         scrollController.offset > (200 - kToolbarHeight);
   }
 
+  void _showErrorSnackBar() {
+    Scaffold.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Oops... the URL couldn\'t be opened!'),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     _height = MediaQuery.of(context).size.height;
     _width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      backgroundColor: Colors.black87,
       body: Stack(
         children: <Widget>[
           SingleChildScrollView(
             physics: ClampingScrollPhysics(),
-            //controller: scrollController,
+            controller: scrollController,
             child: Column(
               children: <Widget>[
                 Padding(
@@ -96,7 +98,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                     Text(
                                       'Talk to Doctor',
                                       style: TextStyle(
-                                          color: Colors.black, fontSize: 12.0),
+                                          color: Colors.white, fontSize: 12.0),
                                     ),
                                   ],
                                 ),
@@ -117,9 +119,9 @@ class _DashboardPageState extends State<DashboardPage> {
                                       size: 75.0,
                                     ),
                                     Text(
-                                      'Get Gold',
+                                      'Hospitals',
                                       style: TextStyle(
-                                          color: Colors.black, fontSize: 12.0),
+                                          color: Colors.white, fontSize: 12.0),
                                     ),
                                   ],
                                 ),
@@ -142,7 +144,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                     Text(
                                       'Medicines',
                                       style: TextStyle(
-                                          color: Colors.black, fontSize: 12.0),
+                                          color: Colors.white, fontSize: 12.0),
                                     ),
                                   ],
                                 ),
@@ -165,7 +167,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                     Text(
                                       'Lab Tests',
                                       style: TextStyle(
-                                          color: Colors.black, fontSize: 12.0),
+                                          color: Colors.white, fontSize: 12.0),
                                     ),
                                   ],
                                 ),
@@ -197,7 +199,7 @@ class _DashboardPageState extends State<DashboardPage> {
                             fontWeight: FontWeight.w400,
                             fontSize: 13,
                             letterSpacing: 1.5,
-                            color: Colors.grey[600],
+                            color: Colors.white,
                           ),
                         ),
                       ),
@@ -218,7 +220,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                     width: _width / 2.4,
                                     child: ClipRRect(
                                       borderRadius:
-                                      new BorderRadius.circular(5.0),
+                                          new BorderRadius.circular(5.0),
                                       child: Image.asset(
                                         'assets/images/male.png',
                                         fit: BoxFit.fill,
@@ -228,9 +230,9 @@ class _DashboardPageState extends State<DashboardPage> {
                                   Container(
                                     child: Column(
                                       mainAxisAlignment:
-                                      MainAxisAlignment.center,
+                                          MainAxisAlignment.center,
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       children: <Widget>[
                                         Padding(
                                           padding: EdgeInsets.only(top: 60.0),
@@ -243,10 +245,10 @@ class _DashboardPageState extends State<DashboardPage> {
                                                 child: Text(
                                                   'Below 40',
                                                   style: TextStyle(
-                                                      color: Colors.black,
+                                                      color: Colors.white,
                                                       fontSize: 12,
                                                       fontWeight:
-                                                      FontWeight.bold),
+                                                          FontWeight.bold),
                                                 ),
                                               ),
                                               Container(
@@ -255,7 +257,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                                 child: Text(
                                                   'year',
                                                   style: TextStyle(
-                                                      color: Colors.black45,
+                                                      color: Colors.grey[100],
                                                       fontSize: 10),
                                                 ),
                                               ),
@@ -270,7 +272,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                           width: _width / 6.0,
                                           decoration: BoxDecoration(
                                             borderRadius:
-                                            BorderRadius.circular(50.0),
+                                                BorderRadius.circular(50.0),
                                             color: Colors.indigo,
                                           ),
                                           child: Center(
@@ -303,7 +305,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                     width: _width / 2.4,
                                     child: ClipRRect(
                                       borderRadius:
-                                      new BorderRadius.circular(5.0),
+                                          new BorderRadius.circular(5.0),
                                       child: Image.asset(
                                         'assets/images/male.png',
                                         fit: BoxFit.fill,
@@ -313,9 +315,9 @@ class _DashboardPageState extends State<DashboardPage> {
                                   Container(
                                     child: Column(
                                       mainAxisAlignment:
-                                      MainAxisAlignment.center,
+                                          MainAxisAlignment.center,
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       children: <Widget>[
                                         Padding(
                                           padding: EdgeInsets.only(top: 60.0),
@@ -328,10 +330,10 @@ class _DashboardPageState extends State<DashboardPage> {
                                                 child: Text(
                                                   'Above 40',
                                                   style: TextStyle(
-                                                      color: Colors.black,
+                                                      color: Colors.white,
                                                       fontSize: 12,
                                                       fontWeight:
-                                                      FontWeight.bold),
+                                                          FontWeight.bold),
                                                 ),
                                               ),
                                               Container(
@@ -340,7 +342,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                                 child: Text(
                                                   'year',
                                                   style: TextStyle(
-                                                      color: Colors.black45,
+                                                      color: Colors.grey[100],
                                                       fontSize: 10),
                                                 ),
                                               ),
@@ -355,7 +357,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                           width: _width / 6.0,
                                           decoration: BoxDecoration(
                                             borderRadius:
-                                            BorderRadius.circular(50.0),
+                                                BorderRadius.circular(50.0),
                                             color: Colors.indigo,
                                           ),
                                           child: Center(
@@ -396,7 +398,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                     width: _width / 2.4,
                                     child: ClipRRect(
                                       borderRadius:
-                                      new BorderRadius.circular(5.0),
+                                          new BorderRadius.circular(5.0),
                                       child: Image.asset(
                                         'assets/images/female.png',
                                         fit: BoxFit.fill,
@@ -406,9 +408,9 @@ class _DashboardPageState extends State<DashboardPage> {
                                   Container(
                                     child: Column(
                                       mainAxisAlignment:
-                                      MainAxisAlignment.center,
+                                          MainAxisAlignment.center,
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       children: <Widget>[
                                         Padding(
                                           padding: EdgeInsets.only(top: 60.0),
@@ -421,10 +423,10 @@ class _DashboardPageState extends State<DashboardPage> {
                                                 child: Text(
                                                   'Below 40',
                                                   style: TextStyle(
-                                                      color: Colors.black,
+                                                      color: Colors.white,
                                                       fontSize: 12,
                                                       fontWeight:
-                                                      FontWeight.bold),
+                                                          FontWeight.bold),
                                                 ),
                                               ),
                                               Container(
@@ -433,7 +435,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                                 child: Text(
                                                   'year',
                                                   style: TextStyle(
-                                                      color: Colors.black45,
+                                                      color: Colors.grey[100],
                                                       fontSize: 10),
                                                 ),
                                               ),
@@ -448,7 +450,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                           width: _width / 6.0,
                                           decoration: BoxDecoration(
                                             borderRadius:
-                                            BorderRadius.circular(50.0),
+                                                BorderRadius.circular(50.0),
                                             color: Colors.redAccent,
                                           ),
                                           child: Center(
@@ -482,7 +484,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                     width: _width / 2.4,
                                     child: ClipRRect(
                                       borderRadius:
-                                      new BorderRadius.circular(5.0),
+                                          new BorderRadius.circular(5.0),
                                       child: Image.asset(
                                         'assets/images/female.png',
                                         fit: BoxFit.fill,
@@ -492,9 +494,9 @@ class _DashboardPageState extends State<DashboardPage> {
                                   Container(
                                     child: Column(
                                       mainAxisAlignment:
-                                      MainAxisAlignment.center,
+                                          MainAxisAlignment.center,
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       children: <Widget>[
                                         Padding(
                                           padding: EdgeInsets.only(top: 60.0),
@@ -507,10 +509,10 @@ class _DashboardPageState extends State<DashboardPage> {
                                                 child: Text(
                                                   'Above 40',
                                                   style: TextStyle(
-                                                      color: Colors.black,
+                                                      color: Colors.white,
                                                       fontSize: 12,
                                                       fontWeight:
-                                                      FontWeight.bold),
+                                                          FontWeight.bold),
                                                 ),
                                               ),
                                               Container(
@@ -519,7 +521,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                                 child: Text(
                                                   'year',
                                                   style: TextStyle(
-                                                      color: Colors.black45,
+                                                      color: Colors.grey[100],
                                                       fontSize: 10),
                                                 ),
                                               ),
@@ -534,7 +536,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                           width: _width / 6.0,
                                           decoration: BoxDecoration(
                                             borderRadius:
-                                            BorderRadius.circular(50.0),
+                                                BorderRadius.circular(50.0),
                                             color: Colors.redAccent,
                                           ),
                                           child: Center(
@@ -561,16 +563,21 @@ class _DashboardPageState extends State<DashboardPage> {
                         width: _width,
                         height: _height / 17.0,
                         decoration: BoxDecoration(
+                          color: Colors.white,
                           border:
-                          Border.all(width: 1.0, color: Colors.indigo[100]),
+                              Border.all(width: 1.0, color: Colors.greenAccent),
                           borderRadius: BorderRadius.all(Radius.circular(70.0)),
                         ),
                         child: Center(
-                          child: Text("See all Lab Test >",
-                              style: TextStyle(
-                                  fontSize: 12.0,
-                                  color: Colors.indigo,
-                                  fontWeight: FontWeight.w500)),
+                          child: Link(
+                            url: 'https://www.houseofdiagnostics.com/online-reports/',
+                            onError: _showErrorSnackBar,
+                            child: Text("See all Lab Test >",
+                                style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.indigo,
+                                    fontWeight: FontWeight.w500)),
+                          ),
                         ),
                       ),
                       Container(
@@ -582,7 +589,7 @@ class _DashboardPageState extends State<DashboardPage> {
                             fontWeight: FontWeight.w400,
                             fontSize: 13,
                             letterSpacing: 1.5,
-                            color: Colors.grey[600],
+                            color: Colors.white,
                           ),
                         ),
                       ),
@@ -620,7 +627,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                               topLeft: Radius.circular(3),
                                               topRight: Radius.circular(5),
                                               bottomLeft:
-                                              Radius.circular(90.0)),
+                                                  Radius.circular(90.0)),
                                           child: Stack(
                                             children: <Widget>[
                                               ClipPath(
@@ -673,7 +680,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                     alignment: Alignment.centerLeft,
                                     height: _height / 20.0,
                                     padding:
-                                    EdgeInsets.only(top: 10.0, left: 15.0),
+                                        EdgeInsets.only(top: 10.0, left: 15.0),
                                     child: Text(
                                       'Get Advice',
                                       style: TextStyle(
@@ -689,7 +696,7 @@ class _DashboardPageState extends State<DashboardPage> {
                           ),
                           SizedBox(
 // width:18.5,
-                          ),
+                              ),
                           Container(
                             width: _width / 2.3,
                             height: _height / 3.5,
@@ -721,7 +728,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                               topLeft: Radius.circular(3),
                                               topRight: Radius.circular(5),
                                               bottomLeft:
-                                              Radius.circular(90.0)),
+                                                  Radius.circular(90.0)),
                                           child: Stack(
                                             children: <Widget>[
                                               ClipPath(
@@ -771,7 +778,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                     alignment: Alignment.centerLeft,
                                     height: _height / 20.0,
                                     padding:
-                                    EdgeInsets.only(top: 10.0, left: 15.0),
+                                        EdgeInsets.only(top: 10.0, left: 15.0),
                                     child: Text(
                                       'Get Advice',
                                       style: TextStyle(
@@ -796,7 +803,7 @@ class _DashboardPageState extends State<DashboardPage> {
                             fontWeight: FontWeight.w400,
                             fontSize: 13,
                             letterSpacing: 1.5,
-                            color: Colors.grey[600],
+                            color: Colors.white,
                           ),
                         ),
                       ),
@@ -836,7 +843,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                                 topLeft: Radius.circular(3),
                                                 topRight: Radius.circular(5),
                                                 bottomLeft:
-                                                Radius.circular(90.0)),
+                                                    Radius.circular(90.0)),
                                             child: Stack(
                                               children: <Widget>[
                                                 ClipPath(
@@ -905,7 +912,7 @@ class _DashboardPageState extends State<DashboardPage> {
                             ),
                             SizedBox(
 // width:18.5,
-                            ),
+                                ),
                             Container(
                               width: _width / 2.3,
                               height: _height / 3.5,
@@ -936,7 +943,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                                 topLeft: Radius.circular(3),
                                                 topRight: Radius.circular(5),
                                                 bottomLeft:
-                                                Radius.circular(90.0)),
+                                                    Radius.circular(90.0)),
                                             child: Stack(
                                               children: <Widget>[
                                                 ClipPath(
@@ -986,7 +993,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                       height: _height / 20.0,
                                       alignment: Alignment.centerLeft,
                                       padding:
-                                      EdgeInsets.only(top: 0.0, left: 15.0),
+                                          EdgeInsets.only(top: 0.0, left: 15.0),
                                       child: Text(
                                         'Take Test',
                                         style: TextStyle(
@@ -1004,163 +1011,6 @@ class _DashboardPageState extends State<DashboardPage> {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(top: 10.0),
-                        width: _width,
-                        height: _height / 3.6,
-                        child: Card(
-                          elevation: 3.0,
-                          shape: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide.none),
-                          color: Colors.green,
-                          child: Stack(children: <Widget>[
-                            ClipRRect(
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  topRight: Radius.circular(10)),
-                              child: Opacity(
-                                opacity: 0.75,
-                                child: ClipPath(
-                                  clipper: CustomShapeClipper(),
-                                  child: Container(
-                                    height: _height / 2,
-                                    decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                        colors: [
-                                          Colors.green[600],
-                                          Colors.green[500]
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            ClipRRect(
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  topRight: Radius.circular(10)),
-                              child: Column(
-                                children: <Widget>[
-                                  Opacity(
-                                    opacity: 0.5,
-                                    child: ClipPath(
-                                      clipper: CustomShapeClipper2(),
-                                      child: Container(
-                                        //height: _height / 3.5,
-                                        height: _height / 4,
-                                        decoration: BoxDecoration(
-                                          gradient: LinearGradient(
-                                            colors: [
-                                              Colors.green,
-                                              Colors.green
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Stack(
-                              children: <Widget>[
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Container(
-                                      // color: Colors.deepOrange,
-                                      width: _width / 1.3,
-                                      padding: EdgeInsets.only(
-                                          top: 20.0, left: 10.0, right: 0.0),
-                                      child: Text(
-                                        'Medicine Delivery now available in 24-48 hrs',
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 16.0,
-                                            fontWeight: FontWeight.w700,
-                                            letterSpacing: 1.0),
-                                        maxLines: 2,
-                                      ),
-                                    ),
-                                    Row(
-                                      crossAxisAlignment:
-                                      CrossAxisAlignment.start,
-                                      children: <Widget>[
-                                        Container(
-                                          width: _width / 2,
-                                          padding: EdgeInsets.only(
-                                            top: 10.0,
-                                            left: 10.0,
-                                          ),
-                                          child: Text(
-                                            'in Mumbai.Pune.Bengaluru Hyedrabad.NCR.Kolkata & Chennai',
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 10.0,
-                                                fontWeight: FontWeight.w300,
-                                                letterSpacing: 0.1,
-                                                height: 1.5),
-                                            overflow: TextOverflow.ellipsis,
-                                            maxLines: 2,
-                                          ),
-                                        ),
-                                        Container(
-                                          // color: Colors.orange,
-                                          //height:,
-                                          margin: EdgeInsets.only(
-                                              bottom: 0.0, left: 10.0),
-                                          child: CircleAvatar(
-                                            radius: 42,
-                                            child: ClipOval(
-                                              child: Image.asset(
-                                                'assets/images/medicine_delvery_boy.jpg',
-                                                fit: BoxFit.fill,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            Stack(
-                              children: <Widget>[
-                                Align(
-                                  alignment: Alignment.bottomLeft,
-                                  child: Container(
-                                    margin: EdgeInsets.only(
-                                        right: 0.0,
-                                        top: 0.0,
-                                        left: 20.0,
-                                        bottom: 10.0),
-                                    width: _width / 6,
-                                    height: 30,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(50.0),
-// border: Border.all(width: 1.0, color: Colors.green),
-                                      color: Colors.white,
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'Book Now',
-                                        style: TextStyle(
-                                          color: Colors.green,
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 10,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ]),
-                        ),
-                      ),
-                      Container(
                         alignment: Alignment.topLeft,
                         margin: EdgeInsets.only(top: 15.0),
                         child: Text(
@@ -1169,7 +1019,7 @@ class _DashboardPageState extends State<DashboardPage> {
                             fontWeight: FontWeight.w400,
                             fontSize: 13,
                             letterSpacing: 1.5,
-                            color: Colors.grey[600],
+                            color: Colors.white,
                           ),
                         ),
                       ),
@@ -1258,27 +1108,27 @@ class _DashboardPageState extends State<DashboardPage> {
                                                     fontSize: 10.0,
                                                     color: Colors.black,
                                                     fontWeight:
-                                                    FontWeight.bold),
+                                                        FontWeight.bold),
                                                 textAlign: TextAlign.left,
                                               ),
                                             ),
                                             Row(
                                               mainAxisAlignment:
-                                              MainAxisAlignment
-                                                  .spaceBetween,
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
                                               children: <Widget>[
                                                 Text(
                                                   'PREVIEW',
                                                   style: TextStyle(
                                                       color: Colors.indigo,
                                                       fontWeight:
-                                                      FontWeight.bold,
+                                                          FontWeight.bold,
                                                       fontSize: 12.0),
                                                   textAlign: TextAlign.center,
                                                 ),
                                                 Container(
                                                   alignment:
-                                                  Alignment.bottomCenter,
+                                                      Alignment.bottomCenter,
                                                   padding: EdgeInsets.only(
                                                       bottom: 5.0),
                                                   child: Icon(
@@ -1299,7 +1149,7 @@ class _DashboardPageState extends State<DashboardPage> {
                             ),
                             SizedBox(
 // width:18.5,
-                            ),
+                                ),
                             Container(
                               width: _width / 2.3,
                               height: _height / 2.3,
@@ -1324,7 +1174,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                           height: _height / 7,
                                           width: _width / 5,
                                           child: Image.asset(
-                                            'assets/images/ebooks_img.jpeg',
+                                            'assets/images/booksImage.jpeg',
                                             fit: BoxFit.fill,
                                           ),
                                         ),
@@ -1381,27 +1231,27 @@ class _DashboardPageState extends State<DashboardPage> {
                                                     fontSize: 10.0,
                                                     color: Colors.black,
                                                     fontWeight:
-                                                    FontWeight.bold),
+                                                        FontWeight.bold),
                                                 textAlign: TextAlign.left,
                                               ),
                                             ),
                                             Row(
                                               mainAxisAlignment:
-                                              MainAxisAlignment
-                                                  .spaceBetween,
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
                                               children: <Widget>[
                                                 Text(
                                                   'PREVIEW',
                                                   style: TextStyle(
                                                       color: Colors.indigo,
                                                       fontWeight:
-                                                      FontWeight.bold,
+                                                          FontWeight.bold,
                                                       fontSize: 12.0),
                                                   textAlign: TextAlign.center,
                                                 ),
                                                 Container(
                                                   alignment:
-                                                  Alignment.bottomCenter,
+                                                      Alignment.bottomCenter,
                                                   padding: EdgeInsets.only(
                                                       bottom: 5.0),
                                                   child: Icon(
@@ -1428,16 +1278,21 @@ class _DashboardPageState extends State<DashboardPage> {
                         width: _width,
                         height: _height / 17.0,
                         decoration: BoxDecoration(
+                          color: Colors.white,
                           border:
-                          Border.all(width: 1.0, color: Colors.indigo[100]),
+                              Border.all(width: 1.0, color: Colors.greenAccent),
                           borderRadius: BorderRadius.all(Radius.circular(70.0)),
                         ),
                         child: Center(
-                          child: Text("E-Books & Guides >",
-                              style: TextStyle(
-                                  fontSize: 12.0,
-                                  color: Colors.indigo,
-                                  fontWeight: FontWeight.w500)),
+                          child: Link(
+                            url: 'https://www.elsevier.com/health',
+                            onError: _showErrorSnackBar,
+                            child: Text("E-Books & Guides >",
+                                style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.indigo,
+                                    fontWeight: FontWeight.w500)),
+                          ),
                         ),
                       ),
                       Container(
@@ -1449,13 +1304,13 @@ class _DashboardPageState extends State<DashboardPage> {
                             fontWeight: FontWeight.w400,
                             fontSize: 13,
                             letterSpacing: 1.5,
-                            color: Colors.grey[600],
+                            color: Colors.white,
                           ),
                         ),
                       ),
                       Container(
                         padding:
-                        EdgeInsets.only(left: 0.0, right: 0.0, top: 10.0),
+                            EdgeInsets.only(left: 0.0, right: 0.0, top: 10.0),
 // color: Colors.white,
                         height: _height / 2,
                         width: _width,
@@ -1502,7 +1357,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                       top: 5.0, left: 15.0, right: 10.0),
                                   child: Text(
                                     'This ebook will help you understand the symptoms,causes This ebook will help you understand the symptoms,causes'
-                                        'This ebook will help you understand the symptoms,causes This ebook will help you understand the symptoms,causes',
+                                    'This ebook will help you understand the symptoms,causes This ebook will help you understand the symptoms,causes',
                                     style: TextStyle(
                                         color: Colors.black45,
                                         fontWeight: FontWeight.w400,
@@ -1543,7 +1398,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                   backgroundColor: Colors.white,
                                   child: ClipOval(
                                     child: Image.asset(
-                                      'assets/images/whatsap.png',
+                                      'assets/images/whatsapp.png',
                                       fit: BoxFit.fill,
                                       height: _height / 17,
                                       width: _width / 8,
@@ -1557,7 +1412,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       ),
                       Container(
                         padding:
-                        EdgeInsets.only(left: 0.0, right: 0.0, top: 10.0),
+                            EdgeInsets.only(left: 0.0, right: 0.0, top: 10.0),
 // color: Colors.white,
                         height: _height / 2.0,
                         width: _width,
@@ -1603,7 +1458,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                       top: 5.0, left: 15.0, right: 10.0),
                                   child: Text(
                                     'This ebook will help you understand the symptoms,causes This ebook will help you understand the symptoms,causes'
-                                        'This ebook will help you understand the symptoms,causes This ebook will help you understand the symptoms,causes',
+                                    'This ebook will help you understand the symptoms,causes This ebook will help you understand the symptoms,causes',
                                     style: TextStyle(
                                         color: Colors.black45,
                                         fontWeight: FontWeight.w400,
@@ -1644,7 +1499,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                   backgroundColor: Colors.white,
                                   child: ClipOval(
                                     child: Image.asset(
-                                      'assets/images/whatsap.png',
+                                      'assets/images/whatsapp.png',
                                       fit: BoxFit.fill,
                                       height: _height / 17,
                                       width: _width / 8,
@@ -1661,16 +1516,21 @@ class _DashboardPageState extends State<DashboardPage> {
                         width: _width,
                         height: _height / 17.0,
                         decoration: BoxDecoration(
+                          color: Colors.white,
                           border:
-                          Border.all(width: 1.0, color: Colors.indigo[100]),
+                              Border.all(width: 1.0, color: Colors.greenAccent),
                           borderRadius: BorderRadius.all(Radius.circular(70.0)),
                         ),
                         child: Center(
-                          child: Text("Other Health Articles >",
-                              style: TextStyle(
-                                  fontSize: 12.0,
-                                  color: Colors.indigo,
-                                  fontWeight: FontWeight.w500)),
+                          child: Link(
+                            url: 'https://www.healthline.com/health-news',
+                            onError: _showErrorSnackBar,
+                            child: Text("Other Health Articles >",
+                                style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.indigo,
+                                    fontWeight: FontWeight.w500)),
+                          ),
                         ),
                       ),
                     ],
@@ -1739,7 +1599,7 @@ class _DashboardPageState extends State<DashboardPage> {
                               height: 7.0,
                             ),
                             Text(
-                              'Get Gold',
+                              'Hospitals',
                               style: TextStyle(
                                   color: Colors.white, fontSize: 10.0),
                             ),
@@ -1802,6 +1662,7 @@ class _DashboardPageState extends State<DashboardPage> {
       width: 200,
       margin: EdgeInsets.only(right: 5.0),
       child: Card(
+        color: Colors.black,
         elevation: 2.0,
         child: Column(
           children: <Widget>[
@@ -1863,8 +1724,8 @@ class _DashboardPageState extends State<DashboardPage> {
                     width: 60.0,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50.0),
-                      border: Border.all(width: 1.0, color: Colors.greenAccent),
-                      color: Colors.white,
+                      border: Border.all(width: 1.0, color: Colors.white),
+                      color: Colors.greenAccent,
                     ),
                     child: Center(
                       child: Container(
@@ -1872,7 +1733,7 @@ class _DashboardPageState extends State<DashboardPage> {
                         child: Text(
                           item.buttonTitle,
                           style: TextStyle(
-                              color: Colors.greenAccent,
+                              color: Colors.black,
                               fontWeight: FontWeight.w600,
                               fontSize: 6),
                         ),

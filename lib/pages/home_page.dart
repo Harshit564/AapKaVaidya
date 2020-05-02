@@ -1,9 +1,6 @@
-import 'package:aapkavaidya/constants.dart';
 import 'package:aapkavaidya/drawer/drawer.dart';
 import 'package:aapkavaidya/pages/discussions.dart';
 import 'package:aapkavaidya/pages/relax_zone_page.dart';
-import 'package:aapkavaidya/widgets/custom_shape.dart';
-import 'package:aapkavaidya/models/treatment_slides.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_icons/flutter_icons.dart';
@@ -14,11 +11,16 @@ import 'extras_page.dart';
 class HomePage extends StatefulWidget {
   static const String routeName = "/home-page";
 
+  final String currentUserId;
+  HomePage({Key key, @required this.currentUserId}) : super(key: key);
   @override
-  _HomePageState createState() => _HomePageState();
+  _HomePageState createState() => _HomePageState(currentUserId: currentUserId);
 }
 
 class _HomePageState extends State<HomePage> {
+  final String currentUserId;
+
+  _HomePageState({Key key, @required this.currentUserId});
   final List<Map<String, Object>> _pages = [
     {
       'page': DashboardPage(),

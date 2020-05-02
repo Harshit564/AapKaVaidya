@@ -2,8 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'package:aapkavaidya/pages/signup_page.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -36,11 +36,10 @@ class _LoginPageState extends State<LoginPage> {
 
   //facebook login credentials
 
-
   FirebaseUser currentUser;
   SharedPreferences prefs;
 
-
+  // ignore: missing_return
   Future<FirebaseUser> _googleSignInButton() async {
     prefs = await SharedPreferences.getInstance();
 
@@ -54,21 +53,58 @@ class _LoginPageState extends State<LoginPage> {
     AuthResult _authResult =
         await _fireBaseAuth.signInWithCredential(credential);
 
-    // print("user name : ${_fireBaseUser.photoUrl}");
     FirebaseUser firebaseUser = _authResult.user;
-    String userName = firebaseUser.displayName;
-    String emailId = firebaseUser.email;
-    String profilePic = firebaseUser.photoUrl;
 
-    Firestore.instance.collection('users')
-    .document(userName)
-    .setData({
-      'UserName' : userName.toString().trim(),
-      'Email' : emailId.toString().trim(),
-      'Profile Pic' : profilePic.toString().trim(),
-    });
-    Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
-    return firebaseUser;
+    if (firebaseUser != null) {
+      // Check is already sign up
+      final QuerySnapshot result = await Firestore.instance
+          .collection('users')
+          .where('id', isEqualTo: firebaseUser.uid)
+          .getDocuments();
+      final List<DocumentSnapshot> documents = result.documents;
+      if (documents.length == 0) {
+        // Update data to server if new user
+        Firestore.instance
+            .collection('users')
+            .document(firebaseUser.displayName)
+            .setData({
+          'userName': firebaseUser.displayName,
+          'photoUrl': firebaseUser.photoUrl,
+          'id': firebaseUser.uid,
+          'email': firebaseUser.email,
+          'createdAt': DateTime.now().millisecondsSinceEpoch.toString(),
+          'chattingWith': null
+        });
+
+        // Write data to local
+        currentUser = firebaseUser;
+        await prefs.setString('id', currentUser.uid);
+        await prefs.setString('userName', currentUser.displayName);
+        await prefs.setString('photoUrl', currentUser.photoUrl);
+        await prefs.setString('email', currentUser.email);
+      } else {
+        // Write data to local
+        await prefs.setString('id', documents[0]['id']);
+        await prefs.setString('email', documents[0]['email']);
+        await prefs.setString('userName', documents[0]['nickname']);
+        await prefs.setString('photoUrl', documents[0]['photoUrl']);
+        await prefs.setString('aboutMe', documents[0]['aboutMe']);
+      }
+      Fluttertoast.showToast(msg: "Sign in success");
+      this.setState(() {
+        isLoading = false;
+      });
+
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => HomePage(currentUserId: firebaseUser.uid)));
+    } else {
+      Fluttertoast.showToast(msg: "Sign in fail");
+      this.setState(() {
+        isLoading = false;
+      });
+    }
   }
 
   @override
@@ -243,7 +279,7 @@ class _LoginPageState extends State<LoginPage> {
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => HomePage())))
+                                builder: (context) => HomePage(currentUserId: currentUser.toString(),))))
                     .catchError((err) => print(err)))
                 .catchError((err) => print(err));
           }
@@ -290,56 +326,44 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget _buildSocialBtn(Function onTap, AssetImage logo) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        height: 60.0,
-        width: 60.0,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: Colors.black,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black26,
-              offset: Offset(0, 2),
-              blurRadius: 6.0,
-            ),
-          ],
-          image: DecorationImage(
-            image: logo,
+  Widget _signInButton() {
+    return ButtonTheme(
+      minWidth: 175,
+      child: FlatButton(
+        color: Colors.black,
+        splashColor: Colors.white,
+        onPressed: () {
+          _googleSignInButton();
+        },
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Image(
+                  image: AssetImage("assets/images/google_logo.png"),
+                  height: 35.0),
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Text(
+                  'Google',
+                  style: TextStyle(
+                    fontFamily: 'Montserrat',
+                    fontSize: 20,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       ),
     );
   }
-
-  Widget _buildSocialBtnRow() {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 30.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          _buildSocialBtn(
-            () => null ,
-            AssetImage(
-              'assets/images/facebook_logo.png',
-            ),
-          ),
-          _buildSocialBtn(
-            () => _googleSignInButton()
-                .then(
-                  (FirebaseUser user) => print(user),
-                )
-                .catchError((e) => print(e)),
-            AssetImage(
-              'assets/images/google_logo.png',
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+  
 
   Widget _buildSignupBtn() {
     return GestureDetector(
@@ -373,60 +397,60 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AnnotatedRegion<SystemUiOverlayStyle>(
-        value: SystemUiOverlayStyle.light,
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
-          child: Stack(
-            children: <Widget>[
-              Container(
-                height: double.infinity,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Color(0xFFcbe7ea),
-                      Color(0xFFb9dfe3),
-                      Color(0xFFa7d6db),
-                      Color(0xFF95ced4),
-                    ],
-                    stops: [0.1, 0.4, 0.7, 0.9],
-                  ),
+        body: AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle.light,
+      child: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: Stack(
+          children: <Widget>[
+            Container(
+              height: double.infinity,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Color(0xFFcbe7ea),
+                    Color(0xFFb9dfe3),
+                    Color(0xFFa7d6db),
+                    Color(0xFF95ced4),
+                  ],
+                  stops: [0.1, 0.4, 0.7, 0.9],
                 ),
               ),
-              Container(
-                height: double.infinity,
-                child: SingleChildScrollView(
+            ),
+            Container(
+              height: double.infinity,
+              child: SingleChildScrollView(
                   physics: AlwaysScrollableScrollPhysics(),
                   padding: EdgeInsets.symmetric(
                     horizontal: 40.0,
                     vertical: 110.0,
                   ),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Center(
-                          child: Padding(
-                        padding:
-                            const EdgeInsets.only(left: 100.0, right: 100.0),
-                        child: Image.asset('assets/images/logo.png'),
-                      )),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        'Sign In',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontFamily: 'OpenSans',
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.bold,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Center(
+                            child: Padding(
+                          padding:
+                              const EdgeInsets.only(left: 100.0, right: 100.0),
+                          child: Image.asset('assets/images/logo.png'),
+                        )),
+                        SizedBox(
+                          height: 20,
                         ),
-                      ),
-                      SizedBox(height: 30.0),
-                      Form(
+                        Text(
+                          'Sign In',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontFamily: 'OpenSans',
+                            fontSize: 30.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(height: 30.0),
+                        Form(
                           key: _loginFormKey,
                           child: Column(children: <Widget>[
                             _buildEmailTF(),
@@ -437,17 +461,56 @@ class _LoginPageState extends State<LoginPage> {
                             _buildForgotPasswordBtn(),
                             _buildLoginBtn(),
                             _buildSignInWithText(),
-                            _buildSocialBtnRow(),
-                            _buildSignupBtn(),
-                          ])),
-                    ],
-                  ),
-                ),
-              )
-            ],
-          ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Align(
+                                alignment: FractionalOffset(0.5, 0.95),
+                                child: _signInButton()),
+                            Center(
+                                child: isLoading
+                                    ? Container(
+                                        padding:
+                                            EdgeInsets.fromLTRB(30, 0, 30, 0),
+                                        height: 80,
+                                        child: Card(
+                                            color: Colors.white,
+                                            elevation: 20,
+                                            child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                children: [
+                                                  Container(
+                                                    padding: EdgeInsets.only(
+                                                        left: 20),
+                                                    child:
+                                                        CircularProgressIndicator(),
+                                                    height: 30.0,
+                                                    width: 50.0,
+                                                  ),
+                                                  Container(
+                                                    padding: EdgeInsets.only(
+                                                        left: 20),
+                                                    child: Text(
+                                                        "Verifying Credentials ...",
+                                                        style: TextStyle(
+                                                            fontFamily:
+                                                                'Montserrat',
+                                                            fontSize: 16)),
+                                                  ),
+                                                ])))
+                                    : Container()),
+                          ]),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        _buildSignupBtn(),
+                      ])),
+            ),
+          ],
         ),
       ),
-    );
+    ));
   }
 }

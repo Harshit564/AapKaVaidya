@@ -289,9 +289,9 @@ class _SignUpPageState extends State<SignUpPage> {
                       )
                       .then((currentUser) => Firestore.instance
                               .collection("users")
-                              .document(currentUser.toString())
+                              .document(_emailInputController.text.toString().trim())
                               .setData({
-                            "uid": currentUser.toString(),
+                            //"uid": currentUser.toString(),
                             "name": _nameInputController.text.toString().trim(),
                             "email":
                                 _emailInputController.text.toString().trim(),

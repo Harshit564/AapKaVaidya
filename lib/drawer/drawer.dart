@@ -1,7 +1,12 @@
+import 'dart:io';
 import 'dart:math';
 
+import 'package:aapkavaidya/pages/about_page.dart';
+import 'package:aapkavaidya/pages/discussions.dart';
 import 'package:aapkavaidya/pages/my_profile_page.dart';
 import 'package:flutter/material.dart';
+import 'package:link/link.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:share/share.dart';
 
 class GuillotineMenu extends StatefulWidget {
@@ -34,8 +39,8 @@ This is to check the offset of the menu Icon in top left corner.
       vsync: this,
       duration: Duration(milliseconds: 750),
     )..addListener(() {
-      setState(() {});
-    });
+        setState(() {});
+      });
 
     // Menu Animation
 
@@ -50,15 +55,14 @@ This is to check the offset of the menu Icon in top left corner.
         Tween(begin: 1.0, end: 0.0).animate(_guillotineMenuAnimationController);
   }
 
-  _getPosition(_) {
-    _getOffset();
+  void _showErrorSnackBar() {
+    Scaffold.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Oops... the URL couldn\'t be opened!'),
+      ),
+    );
   }
 
-  void _getOffset() {
-    final RenderBox offsetBox = _menuIconkey.currentContext.findRenderObject();
-    final Offset offset = offsetBox.localToGlobal(Offset.zero);
-    print("Offset : $offset");
-  }
 
   @override
   void dispose() {
@@ -78,6 +82,44 @@ This is to check the offset of the menu Icon in top left corner.
     final AnimationStatus status = _guillotineMenuAnimationController.status;
     return status == AnimationStatus.completed ||
         status == AnimationStatus.forward;
+  }
+
+  _onAlertButtonsPressed(context) {
+    Alert(
+        style: AlertStyle(
+          backgroundColor: Colors.black,
+          titleStyle:
+          TextStyle(fontFamily: 'Montserrat', color: Colors.greenAccent),
+          descStyle:
+          TextStyle(fontFamily: 'Montserrat', color: Colors.lightGreen),
+        ),
+        context: context,
+        type: AlertType.warning,
+        title: "LOG OUT",
+        desc: "Do you want to log out your ID ?",
+        content: Row(
+          children: <Widget>[
+            Link(
+              child: Text(
+                'YES',
+                style: TextStyle(color: Colors.lightGreen,fontSize: 20.0),
+              ),
+              url: 'https://www.orfonline.org/covid19-tracker/',
+              onError: _showErrorSnackBar,
+            ),
+            SizedBox(
+              width: 116,
+            ),
+            FlatButton(
+              onPressed: () => Navigator.of(context).pop(false),
+              child: Text('NO',
+                  style: TextStyle(
+                      color: Colors.lightGreen,
+                      fontSize: 20.0
+                  )),
+            )
+          ],
+        )).show();
   }
 
   @override
@@ -176,9 +218,9 @@ This is to check the offset of the menu Icon in top left corner.
             },
           ),
           ListTile(
-            leading: Icon(Icons.local_hospital, color: Colors.white),
+            leading: Icon(Icons.account_box, color: Colors.white),
             title: Text(
-              'Types of vaccines',
+              'About Us',
               style: TextStyle(
                 color: Colors.white,
               ),
@@ -187,7 +229,7 @@ This is to check the offset of the menu Icon in top left corner.
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => MyProfilePage(),
+                  builder: (context) => AboutPage(),
                 ),
               );
               // Update the state of the app.
@@ -206,12 +248,45 @@ This is to check the offset of the menu Icon in top left corner.
               Navigator.push(
                 context,
                 MaterialPageRoute(
+                  builder: (context) => DiscussionsPage(),
+                ),
+              );
+              // Update the state of the app.
+              // ...
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.person, color: Colors.white),
+            title: Text(
+              'Profile Page',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
                   builder: (context) => MyProfilePage(),
                 ),
               );
               // Update the state of the app.
               // ...
             },
+          ),
+          ListTile(
+              leading: Icon(Icons.track_changes, color: Colors.white),
+              title: Text(
+                'Covid19 Tracker',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              onTap: () => _onAlertButtonsPressed(context)
+          ),
+          Divider(
+            thickness: 2.0,
+            color: Colors.white,
           ),
           ListTile(
             leading: Icon(Icons.share, color: Colors.white),
@@ -225,7 +300,7 @@ This is to check the offset of the menu Icon in top left corner.
               RenderBox box = context.findRenderObject();
               Share.share('Hello this is a test',
                   sharePositionOrigin:
-                  box.localToGlobal(Offset.zero) & box.size);
+                      box.localToGlobal(Offset.zero) & box.size);
               // Update the state of the app.
               // ...
             },

@@ -32,6 +32,7 @@ class _VideoScreenState extends State<VideoScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Video',style: TextStyle(
+            fontFamily: 'OpenSans',
           color: Colors.greenAccent,
           fontSize: 20.0,
           fontWeight: FontWeight.bold

@@ -4,10 +4,11 @@ import 'dart:math';
 import 'package:aapkavaidya/pages/about_page.dart';
 import 'package:aapkavaidya/pages/discussions.dart';
 import 'package:aapkavaidya/pages/my_profile_page.dart';
+import 'package:aapkavaidya/pages/near_hospital_page.dart';
 import 'package:flutter/material.dart';
 import 'package:link/link.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:share/share.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class GuillotineMenu extends StatefulWidget {
   @override
@@ -29,6 +30,7 @@ class _GuillotineMenuState extends State<GuillotineMenu>
   @override
   void initState() {
     super.initState();
+
 
 /*
 This is to check the offset of the menu Icon in top left corner.
@@ -84,43 +86,74 @@ This is to check the offset of the menu Icon in top left corner.
         status == AnimationStatus.forward;
   }
 
-  _onAlertButtonsPressed(context) {
-    Alert(
-        style: AlertStyle(
-          backgroundColor: Colors.black,
-          titleStyle:
-          TextStyle(fontFamily: 'Montserrat', color: Colors.greenAccent),
-          descStyle:
-          TextStyle(fontFamily: 'Montserrat', color: Colors.lightGreen),
-        ),
+
+  Future<bool> _onSettingsButtonsPressed(BuildContext context) {
+    return showDialog(
         context: context,
-        type: AlertType.warning,
-        title: "LOG OUT",
-        desc: "Do you want to log out your ID ?",
-        content: Row(
-          children: <Widget>[
-            Link(
-              child: Text(
-                'YES',
-                style: TextStyle(color: Colors.lightGreen,fontSize: 20.0),
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return new AlertDialog(
+            backgroundColor: Colors.black,
+            title: Text(
+              'Covid Tracker',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontFamily: 'OpenSans',
+                color: Colors.white,
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold
               ),
-              url: 'https://www.orfonline.org/covid19-tracker/',
-              onError: _showErrorSnackBar,
             ),
-            SizedBox(
-              width: 116,
-            ),
-            FlatButton(
-              onPressed: () => Navigator.of(context).pop(false),
-              child: Text('NO',
+            content: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                height: 60,
+                child: Center(
+                  child: Text('Do you want to know about the current status of Pandemic?',
+                  textAlign: TextAlign.center,
                   style: TextStyle(
-                      color: Colors.lightGreen,
-                      fontSize: 20.0
-                  )),
-            )
-          ],
-        )).show();
+                      fontFamily: 'OpenSans',
+                    color: Colors.grey,
+                    fontWeight: FontWeight.normal,
+                    fontSize: 16.0
+                  ),),
+                ),
+              ),
+            ),
+            actions: <Widget>[
+              Row(
+                children: <Widget>[
+                  Link(
+                    child: FlatButton(
+                      child: Text('YES',
+                          style: TextStyle(
+                              fontFamily: 'OpenSans',
+                              color: Colors.greenAccent,
+                              fontSize: 20.0
+                          )),
+                    ),
+                    url: 'https://www.orfonline.org/covid19-tracker/',
+                    onError: _showErrorSnackBar,
+                  ),
+                  SizedBox(
+                    width: 116,
+                  ),
+                  FlatButton(
+                    onPressed: () => Navigator.of(context).pop(false),
+                    child: Text('NO',
+                        style: TextStyle(
+                            fontFamily: 'OpenSans',
+                            color: Colors.greenAccent,
+                            fontSize: 20.0
+                        )),
+                  )
+                ],
+              ),
+            ],
+          );
+        });
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -183,6 +216,7 @@ This is to check the offset of the menu Icon in top left corner.
         child: Text(
           "Activity",
           style: TextStyle(
+              fontFamily: 'OpenSans',
               color: Colors.white,
               fontSize: 24,
               letterSpacing: 2.0,
@@ -202,6 +236,7 @@ This is to check the offset of the menu Icon in top left corner.
             title: Text(
               'Nearby Hospitals',
               style: TextStyle(
+                fontFamily: 'OpenSans',
                 color: Colors.white,
               ),
             ),
@@ -209,7 +244,7 @@ This is to check the offset of the menu Icon in top left corner.
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => MyProfilePage(),
+                  builder: (context) => NearHospital(),
                 ),
               );
 
@@ -222,6 +257,7 @@ This is to check the offset of the menu Icon in top left corner.
             title: Text(
               'About Us',
               style: TextStyle(
+                fontFamily: 'OpenSans',
                 color: Colors.white,
               ),
             ),
@@ -241,6 +277,7 @@ This is to check the offset of the menu Icon in top left corner.
             title: Text(
               'Discussions',
               style: TextStyle(
+                fontFamily: 'OpenSans',
                 color: Colors.white,
               ),
             ),
@@ -260,6 +297,7 @@ This is to check the offset of the menu Icon in top left corner.
             title: Text(
               'Profile Page',
               style: TextStyle(
+                fontFamily: 'OpenSans',
                 color: Colors.white,
               ),
             ),
@@ -279,10 +317,11 @@ This is to check the offset of the menu Icon in top left corner.
               title: Text(
                 'Covid19 Tracker',
                 style: TextStyle(
+                  fontFamily: 'OpenSans',
                   color: Colors.white,
                 ),
               ),
-              onTap: () => _onAlertButtonsPressed(context)
+              onTap: () => _onSettingsButtonsPressed(context)
           ),
           Divider(
             thickness: 2.0,
@@ -293,6 +332,7 @@ This is to check the offset of the menu Icon in top left corner.
             title: Text(
               'Share',
               style: TextStyle(
+                fontFamily: 'OpenSans',
                 color: Colors.white,
               ),
             ),
@@ -306,26 +346,29 @@ This is to check the offset of the menu Icon in top left corner.
             },
           ),
           ListTile(
-            leading: Icon(Icons.settings, color: Colors.white),
+            leading: Icon(Icons.feedback, color: Colors.white),
             title: Text(
-              'Settings',
+              'Feedback',
               style: TextStyle(
+                fontFamily: 'OpenSans',
                 color: Colors.white,
               ),
             ),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => MyProfilePage(),
-                ),
-              );
+            onTap: () => _launchgmail(),
+
               // Update the state of the app.
-              // ...
-            },
           ),
         ],
       ),
     );
+  }
+  _launchgmail() async {
+    const url =
+        'mailto:harshitsingh15967@gmail.com?subject=Feedback&body=Feedback for Our Support';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }

@@ -86,7 +86,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
               text,
               textAlign: TextAlign.center,
               style: TextStyle(
-                  fontFamily: 'Montserrat',
+                  fontFamily: 'OpenSans',
                   fontSize: 18.0,
                   fontWeight: FontWeight.w500,
                   color: Colors.greenAccent),
@@ -133,6 +133,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
         title: Text(
           "Profile Page",
           style: TextStyle(
+              fontFamily: 'OpenSans',
             fontSize: 20.0,
             fontWeight: FontWeight.bold,
               color: Colors.greenAccent

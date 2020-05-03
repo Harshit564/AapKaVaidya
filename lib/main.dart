@@ -4,7 +4,9 @@ import 'package:aapkavaidya/pages/dashboard_page.dart';
 import 'package:aapkavaidya/pages/discussions.dart';
 import 'package:aapkavaidya/pages/extras_page.dart';
 import 'package:aapkavaidya/pages/home_page.dart';
+import 'package:aapkavaidya/pages/hospitals_page.dart';
 import 'package:aapkavaidya/pages/login_page.dart';
+import 'package:aapkavaidya/pages/medicines_page.dart';
 import 'package:aapkavaidya/pages/my_profile_page.dart';
 import 'package:aapkavaidya/pages/relax_zone_page.dart';
 import 'package:aapkavaidya/pages/splash_page.dart';
@@ -42,6 +44,8 @@ class MyApp extends StatelessWidget {
         RelaxZonePage.routeName: (context) => RelaxZonePage(),
         DashboardPage.routeName: (context) => DashboardPage(),
         MinesweeperGame.routeName: (context) => MinesweeperGame(),
+        HospitalsPage.routeName: (context) => HospitalsPage(),
+        MedicinesPage.routeName: (context) => MedicinesPage(),
       },
     );
   }

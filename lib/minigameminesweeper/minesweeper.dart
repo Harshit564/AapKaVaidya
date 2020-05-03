@@ -140,6 +140,7 @@ class MinesweeperGameState extends State<MinesweeperGame> {
           title: Text(
             'Mine Sweeper',
             style: TextStyle(
+                fontFamily: 'OpenSans',
                 color: Colors.greenAccent,
                 fontWeight: FontWeight.bold,
                 fontSize: 20.0),
@@ -153,7 +154,7 @@ class MinesweeperGameState extends State<MinesweeperGame> {
               FlatButton(
                 child: Text(
                   'Reset Board',
-                  style: TextStyle(color: Colors.black),
+                  style: TextStyle(color: Colors.black,fontFamily: 'OpenSans',),
                 ),
                 onPressed: () => resetBoard(),
                 highlightColor: Colors.green,
@@ -299,6 +300,7 @@ class CoveredMineTile extends StatelessWidget {
         text: TextSpan(
           text: "\u2691",
           style: TextStyle(
+            fontFamily: 'OpenSans',
             color: Colors.black,
             fontWeight: FontWeight.bold,
           ),
@@ -346,6 +348,7 @@ class OpenMineTile extends StatelessWidget {
           text: TextSpan(
             text: '$count',
             style: TextStyle(
+              fontFamily: 'OpenSans',
               fontWeight: FontWeight.bold,
               color: textColor[count - 1],
             ),
@@ -358,6 +361,7 @@ class OpenMineTile extends StatelessWidget {
         text: TextSpan(
           text: '\u2739',
           style: TextStyle(
+            fontFamily: 'OpenSans',
             fontWeight: FontWeight.bold,
             color: Colors.red,
           ),

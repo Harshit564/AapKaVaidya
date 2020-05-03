@@ -128,6 +128,7 @@ class _PageOneState extends State<PageOne> {
                   child: Text(
                     "Welcome To",
                     style: TextStyle(
+                        fontFamily: 'OpenSans',
                         letterSpacing: 2,
                         fontSize: SizeConfig.blockSizeHorizontal * 7.6,
                         color: Colors.black,
@@ -141,6 +142,7 @@ class _PageOneState extends State<PageOne> {
                   child: Text(
                     "BIRTHPAD",
                     style: TextStyle(
+                        fontFamily: 'OpenSans',
                         letterSpacing: 4,
                         fontSize: SizeConfig.blockSizeHorizontal * 7,
                         color: Colors.black,
@@ -155,6 +157,7 @@ class _PageOneState extends State<PageOne> {
                   child: Text(
                     "App that manages birth record and immunization history in real-time!",
                     style: TextStyle(
+                      fontFamily: 'OpenSans',
                       letterSpacing: 0.4,
                       fontSize: SizeConfig.blockSizeHorizontal * 4.2,
                       color: Colors.black.withOpacity(0.4),

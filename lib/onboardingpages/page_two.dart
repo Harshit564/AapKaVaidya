@@ -126,7 +126,7 @@ class _PageTwoState extends State<PageTwo> {
                   padding: EdgeInsets.only(
                       left: SizeConfig.blockSizeHorizontal * 14),
                   child: Text(
-                    "Welcome To",
+                    "Enjoy in",
                     style: TextStyle(
                         fontFamily: 'OpenSans',
                         letterSpacing: 2,
@@ -140,7 +140,7 @@ class _PageTwoState extends State<PageTwo> {
                   padding: EdgeInsets.only(
                       left: SizeConfig.blockSizeHorizontal * 14),
                   child: Text(
-                    "BIRTHPAD",
+                    "Pandemic",
                     style: TextStyle(
                         fontFamily: 'OpenSans',
                         letterSpacing: 4,
@@ -155,7 +155,7 @@ class _PageTwoState extends State<PageTwo> {
                       left: SizeConfig.blockSizeHorizontal * 14,
                       right: SizeConfig.blockSizeHorizontal * 14),
                   child: Text(
-                    "App that manages birth record and immunization history in real-time!",
+                    "App that creates a fun environment using minigames and soothing songs!",
                     style: TextStyle(
                       fontFamily: 'OpenSans',
                       letterSpacing: 0.4,

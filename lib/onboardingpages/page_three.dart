@@ -116,7 +116,7 @@ class _PageThreeState extends State<PageThree> {
                   padding: EdgeInsets.only(
                       left: SizeConfig.blockSizeHorizontal * 14),
                   child: Text(
-                    "Welcome To",
+                    "Easy",
                     style: TextStyle(
                         fontFamily: 'OpenSans',
                         letterSpacing: 2,
@@ -130,7 +130,7 @@ class _PageThreeState extends State<PageThree> {
                   padding: EdgeInsets.only(
                       left: SizeConfig.blockSizeHorizontal * 14),
                   child: Text(
-                    "BIRTHPAD",
+                    "Communication",
                     style: TextStyle(
                         fontFamily: 'OpenSans',
                         letterSpacing: 4,
@@ -145,7 +145,7 @@ class _PageThreeState extends State<PageThree> {
                       left: SizeConfig.blockSizeHorizontal * 14,
                       right: SizeConfig.blockSizeHorizontal * 14),
                   child: Text(
-                    "App that manages birth record and immunization history in real-time!",
+                    "App that maintains a easy flow of communication between doctor and patient!",
                     style: TextStyle(
                       fontFamily: 'OpenSans',
                       letterSpacing: 0.4,

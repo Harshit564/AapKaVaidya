@@ -20,11 +20,11 @@ class HospitalsPage extends StatefulWidget {
 
 class _HospitalsPageState extends State<HospitalsPage> {
   static List<HospitalName> name = [
-    HospitalName('Mike','sasf','asf','asf','assets/images/booksImage.jpeg'),
-    HospitalName('Todd','ffs','at','dg','assets/images/booksImage.jpeg'),
-    HospitalName('Ahmad','sdd','seg','sgsf','assets/images/booksImage.jpeg'),
-    HospitalName('Anthony','dfh','dfg','dfgbdf','assets/images/booksImage.jpeg'),
-    HospitalName('Annette','dfbs','rhy','uytk','assets/images/booksImage.jpeg'),
+    HospitalName('Aditya Hospitals','	4-1-16 Tilak Road Hyderabad 500 001 India','Allday',' + 91 40 475 2988','assets/images/booksImage.jpeg'),
+    HospitalName('Agadi Hospital and Research Centre','Wilson Garden Bangalore India','Allday',' + 91 80 222 2925','assets/images/booksImage.jpeg'),
+    HospitalName('Amar Leela Hospital','"B-1/6 Janakpuri-58 Delhi India"','Allday',' +91 11 553 7965','assets/images/booksImage.jpeg'),
+    HospitalName('Apex Hospitals','"SP-6 Malviya Industrial Area Malviya Ngr 302017 Jaipur India"','Allday',' + 91 141 751 871','assets/images/booksImage.jpeg'),
+    HospitalName('Bhagawan Mahaveer Jain Hospital','"Miller RoadMiller Road Vijaya Ngr Bangalore India"','Allday',' + 91 080 226 0944','assets/images/booksImage.jpeg'),
   ];
 
   @override

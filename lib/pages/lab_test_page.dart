@@ -18,11 +18,11 @@ class LabTestPage extends StatefulWidget {
 class _LabTestPageState extends State<LabTestPage> {
 
   static List<LabTest> name = [
-    LabTest('Mike','asf','asf','assets/images/booksImage.jpeg'),
-    LabTest('Todd','at','dg','assets/images/booksImage.jpeg'),
-    LabTest('Ahmad','seg','sgsf','assets/images/booksImage.jpeg'),
-    LabTest('Anthony','dfg','dfgbdf','assets/images/booksImage.jpeg'),
-    LabTest('Annette','rhy','uytk','assets/images/booksImage.jpeg'),
+    LabTest('Mike','lab1','https://www.houseofdiagnostics.com/online-reports/','assets/images/booksImage.jpeg'),
+    LabTest('Todd','lab2','https://www.houseofdiagnostics.com/online-reports/','assets/images/booksImage.jpeg'),
+    LabTest('Ahmad','lab3','https://www.houseofdiagnostics.com/online-reports/','assets/images/booksImage.jpeg'),
+    LabTest('Anthony','lab4','https://www.houseofdiagnostics.com/online-reports/','assets/images/booksImage.jpeg'),
+    LabTest('Annette','lab5','https://www.houseofdiagnostics.com/online-reports/','assets/images/booksImage.jpeg'),
   ];
 
 

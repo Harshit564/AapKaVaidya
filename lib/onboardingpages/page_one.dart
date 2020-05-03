@@ -140,7 +140,7 @@ class _PageOneState extends State<PageOne> {
                   padding: EdgeInsets.only(
                       left: SizeConfig.blockSizeHorizontal * 14),
                   child: Text(
-                    "BIRTHPAD",
+                    "AapKaVaidya",
                     style: TextStyle(
                         fontFamily: 'OpenSans',
                         letterSpacing: 4,

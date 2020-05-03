@@ -309,6 +309,7 @@ class _LoginPageState extends State<LoginPage> {
         Text(
           '- OR -',
           style: TextStyle(
+            fontFamily: 'OpenSans',
             color: Colors.black,
             fontWeight: FontWeight.w400,
           ),
@@ -350,7 +351,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Text(
                   'Google',
                   style: TextStyle(
-                    fontFamily: 'Montserrat',
+                    fontFamily: 'OpenSans',
                     fontSize: 20,
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
@@ -375,6 +376,7 @@ class _LoginPageState extends State<LoginPage> {
             TextSpan(
               text: 'Don\'t have an Account? ',
               style: TextStyle(
+                fontFamily: 'OpenSans',
                 color: Colors.black,
                 fontSize: 18.0,
                 fontWeight: FontWeight.w400,
@@ -383,6 +385,7 @@ class _LoginPageState extends State<LoginPage> {
             TextSpan(
               text: 'Sign Up',
               style: TextStyle(
+                fontFamily: 'OpenSans',
                 color: Colors.black,
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,
@@ -494,8 +497,7 @@ class _LoginPageState extends State<LoginPage> {
                                                     child: Text(
                                                         "Verifying Credentials ...",
                                                         style: TextStyle(
-                                                            fontFamily:
-                                                                'Montserrat',
+                                                            fontFamily: 'OpenSans',
                                                             fontSize: 16)),
                                                   ),
                                                 ])))

@@ -30,7 +30,7 @@ class _QuizPageState extends State<QuizPage> {
             DialogButton(
               child: Text(
                 "RESTART",
-                style: TextStyle(color: Colors.white, fontSize: 20),
+                style: TextStyle(fontFamily: 'OpenSans',color: Colors.white, fontSize: 20),
               ),
               onPressed: () => Navigator.pop(context),
               color: Color.fromRGBO(0, 179, 134, 1.0),
@@ -70,6 +70,7 @@ class _QuizPageState extends State<QuizPage> {
         title: Text(
           'Quizzler',
           style: TextStyle(
+              fontFamily: 'OpenSans',
             color: Colors.greenAccent,
             fontWeight: FontWeight.bold,
             fontSize: 20.0
@@ -93,6 +94,7 @@ class _QuizPageState extends State<QuizPage> {
                     quizBrain.getQuestionText(),
                     textAlign: TextAlign.center,
                     style: TextStyle(
+                      fontFamily: 'OpenSans',
                       fontSize: 25.0,
                       color: Colors.white,
                     ),

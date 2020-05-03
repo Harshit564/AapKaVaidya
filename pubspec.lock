@@ -22,13 +22,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.4.0"
-  audioplayers:
-    dependency: transitive
-    description:
-      name: audioplayers
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.10.1"
   boolean_selector:
     dependency: transitive
     description:
@@ -36,13 +29,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.5"
-  box2d_flame:
-    dependency: transitive
-    description:
-      name: box2d_flame
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.4.5"
   cached_network_image:
     dependency: "direct main"
     description:
@@ -190,31 +176,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.5"
-  flame:
-    dependency: "direct main"
-    description:
-      name: flame
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.12.2"
   flare_dart:
     dependency: transitive
     description:
-      path: flare_dart
-      ref: dev
-      resolved-ref: "64510c5723c8fafdd83dde9b88468bc78b2a5b47"
-      url: "git://github.com/2d-inc/Flare-Flutter.git"
-    source: git
-    version: "2.3.3"
+      name: flare_dart
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.3.4"
   flare_flutter:
     dependency: transitive
     description:
-      path: flare_flutter
-      ref: dev
-      resolved-ref: "64510c5723c8fafdd83dde9b88468bc78b2a5b47"
-      url: "git://github.com/2d-inc/Flare-Flutter.git"
-    source: git
-    version: "2.0.1"
+      name: flare_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.3"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -228,7 +203,7 @@ packages:
     source: hosted
     version: "0.3.1"
   flutter_cache_manager:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_cache_manager
       url: "https://pub.dartlang.org"
@@ -269,13 +244,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2+1"
-  flutter_svg:
-    dependency: transitive
-    description:
-      name: flutter_svg
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.13.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -293,6 +261,27 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.1"
+  giffy_dialog:
+    dependency: "direct main"
+    description:
+      name: giffy_dialog
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.7.0"
+  google_maps_flutter:
+    dependency: "direct main"
+    description:
+      name: google_maps_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.5.27"
+  google_maps_flutter_platform_interface:
+    dependency: transitive
+    description:
+      name: google_maps_flutter_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   google_sign_in:
     dependency: "direct main"
     description:
@@ -384,13 +373,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.4"
-  ordered_set:
-    dependency: transitive
-    description:
-      name: ordered_set
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.1.5"
   path:
     dependency: transitive
     description:
@@ -398,20 +380,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.6.4"
-  path_drawing:
-    dependency: transitive
-    description:
-      name: path_drawing
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.4.1"
-  path_parsing:
-    dependency: transitive
-    description:
-      name: path_parsing
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.4"
   path_provider:
     dependency: "direct main"
     description:
@@ -461,6 +429,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.3"
+  search_page:
+    dependency: "direct main"
+    description:
+      name: search_page
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.2.0"
   share:
     dependency: "direct main"
     description:
@@ -536,6 +511,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
+  stream_transform:
+    dependency: transitive
+    description:
+      name: stream_transform
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.2.0"
   string_scanner:
     dependency: transitive
     description:
@@ -564,13 +546,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.11"
-  tiled:
-    dependency: transitive
-    description:
-      name: tiled
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.2.1"
   typed_data:
     dependency: transitive
     description:

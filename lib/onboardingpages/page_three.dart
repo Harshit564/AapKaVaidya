@@ -116,8 +116,9 @@ class _PageThreeState extends State<PageThree> {
                   padding: EdgeInsets.only(
                       left: SizeConfig.blockSizeHorizontal * 14),
                   child: Text(
-                    "Welcome To",
+                    "Easy",
                     style: TextStyle(
+                        fontFamily: 'OpenSans',
                         letterSpacing: 2,
                         fontSize: SizeConfig.blockSizeHorizontal * 7.6,
                         color: Colors.black,
@@ -129,8 +130,9 @@ class _PageThreeState extends State<PageThree> {
                   padding: EdgeInsets.only(
                       left: SizeConfig.blockSizeHorizontal * 14),
                   child: Text(
-                    "BIRTHPAD",
+                    "Communication",
                     style: TextStyle(
+                        fontFamily: 'OpenSans',
                         letterSpacing: 4,
                         fontSize: SizeConfig.blockSizeHorizontal * 7,
                         color: Colors.black,
@@ -143,8 +145,9 @@ class _PageThreeState extends State<PageThree> {
                       left: SizeConfig.blockSizeHorizontal * 14,
                       right: SizeConfig.blockSizeHorizontal * 14),
                   child: Text(
-                    "App that manages birth record and immunization history in real-time!",
+                    "App that maintains a easy flow of communication between doctor and patient!",
                     style: TextStyle(
+                      fontFamily: 'OpenSans',
                       letterSpacing: 0.4,
                       fontSize: SizeConfig.blockSizeHorizontal * 4.2,
                       color: Colors.black.withOpacity(0.4),
@@ -174,7 +177,7 @@ class _PageThreeState extends State<PageThree> {
                       },
                       child: Text(
                         "Get Started!",
-                        style: TextStyle(color: Colors.black, fontSize: 18.0),
+                        style: TextStyle(fontFamily: 'OpenSans',color: Colors.black, fontSize: 18.0),
                       ),
                       color: Color(0xffCBE7EA),
                     )),

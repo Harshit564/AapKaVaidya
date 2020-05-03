@@ -40,6 +40,7 @@ class _MatchPageState extends State<MatchPage> with TickerProviderStateMixin {
         title: Text(
           'Fiar Game',
           style: TextStyle(
+              fontFamily: 'OpenSans',
             color: Colors.greenAccent,
             fontWeight: FontWeight.bold,
             fontSize: 20.0
@@ -80,6 +81,7 @@ class _MatchPageState extends State<MatchPage> with TickerProviderStateMixin {
                   '${winner == Player.RED ? 'RED' : 'YELLOW'} WINS',
                   textAlign: TextAlign.center,
                   style: TextStyle(
+                      fontFamily: 'OpenSans',
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold
                   )
@@ -91,6 +93,7 @@ class _MatchPageState extends State<MatchPage> with TickerProviderStateMixin {
                       '${turn == Player.RED ? 'RED' : 'YELLOW'} SPEAKS',
                       textAlign: TextAlign.center,
                       style: TextStyle(
+                          fontFamily: 'OpenSans',
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold
                       )

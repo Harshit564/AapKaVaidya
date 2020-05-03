@@ -60,6 +60,7 @@ class _ExtrasPageState extends State<ExtrasPage> {
                 Text(
                   _channel.title,
                   style: TextStyle(
+                    fontFamily: 'OpenSans',
                     color: Colors.greenAccent,
                     fontSize: 20.0,
                     fontWeight: FontWeight.w600,
@@ -69,6 +70,7 @@ class _ExtrasPageState extends State<ExtrasPage> {
                 Text(
                   '${_channel.subscriberCount} subscribers',
                   style: TextStyle(
+                    fontFamily: 'OpenSans',
                     color: Colors.greenAccent[100],
                     fontSize: 16.0,
                     fontWeight: FontWeight.w600,
@@ -116,6 +118,7 @@ class _ExtrasPageState extends State<ExtrasPage> {
               child: Text(
                 video.title,
                 style: TextStyle(
+                  fontFamily: 'OpenSans',
                   color: Colors.greenAccent,
                   fontSize: 14.0,
                 ),

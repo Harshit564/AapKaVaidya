@@ -60,8 +60,7 @@ class _AboutPageState extends State<AboutPage> {
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.greenAccent,
-                fontFamily: 'Montserrat',
-              ),
+                fontFamily: 'OpenSans',              ),
             ),
             content: Container(
               height: 220,
@@ -71,7 +70,7 @@ class _AboutPageState extends State<AboutPage> {
                     "Facebook",
                     style: TextStyle(
                       color: Colors.white,
-                      fontFamily: 'Montserrat',
+                      fontFamily: 'OpenSans',
                       //color: Color(0xff5cb3bc)
                     ),
                   ),
@@ -95,8 +94,7 @@ class _AboutPageState extends State<AboutPage> {
                     "LinkedIn",
                     style: TextStyle(
                       color: Colors.white,
-                      fontFamily: 'Montserrat',
-                      //color: Color(0xff5cb3bc)
+                      fontFamily: 'OpenSans',                      //color: Color(0xff5cb3bc)
                     ),
                   ),
                   leading: CircleAvatar(
@@ -119,8 +117,9 @@ class _AboutPageState extends State<AboutPage> {
                     "Instagram",
                     style: TextStyle(
                         color: Colors.white,
+                        fontFamily: 'OpenSans',
                         //    color: Color(0xff5cb3bc),
-                        fontFamily: 'Montserrat'),
+                        ),
                   ),
                   leading: CircleAvatar(
                     backgroundColor: Colors.greenAccent,
@@ -181,11 +180,13 @@ class _AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.withOpacity(0.5),
       appBar: AppBar(
         backgroundColor: Colors.black,
         title: Text(
           "About Us",
           style: TextStyle(
+              fontFamily: 'OpenSans',
               fontSize: 20.0,
               fontWeight: FontWeight.bold,
               color: Colors.greenAccent),
@@ -198,50 +199,55 @@ class _AboutPageState extends State<AboutPage> {
           )
         ],
       ),
-      body: Column(
-        children: <Widget>[
-          Container(
-            padding: EdgeInsets.all(20.0),
-            width: MediaQuery.of(context).size.width,
-            height: 200.0,
-            child: Image.asset('assets/images/logo.png'),
-          ),
-          SizedBox(
-            height: 30.0,
-          ),
-          Text("Aap ka Vaidya",
-              style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.normal,
-                  fontSize: 20.0)),
-          SizedBox(
-            height: 10.0,
-          ),
-          Text(
-            "Swaasth Ek Zaroorat",
-            style: TextStyle(
-                color: Colors.black54,
-                fontSize: 18.0,
-                fontWeight: FontWeight.normal),
-          ),
-          SizedBox(
-            height: 30.0,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              child: Text(
-                "Available when you are and without the hassle of the waiting room. Connect in minutes with board-certified physicians and doctoral-level therapists online over live video from your smartphone or tablet \n"
-                "Faster and less expensive than a walk in clinic or ER, you can chat with a doctor virtually 24/7, nights and weekends included. Just like an in-person visit, your doctor will take your history and symptoms, perform an exam, and may recommend treatment - including prescriptions and lab work. They can also provide a doctor’s note, if needed.",
-                style: TextStyle(
-                    color: Colors.black45,
-                    fontSize: 16.0,
-                    fontStyle: FontStyle.italic),
-                textAlign: TextAlign.justify,
-              ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Container(
+              padding: EdgeInsets.all(20.0),
+              width: MediaQuery.of(context).size.width,
+              height: 200.0,
+              child: Image.asset('assets/images/logo.png'),
             ),
-          )
-        ],
+            SizedBox(
+              height: 30.0,
+            ),
+            Text("Aap ka Vaidya",
+                style: TextStyle(
+                    fontFamily: 'OpenSans',
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20.0)),
+            SizedBox(
+              height: 10.0,
+            ),
+            Text(
+              "Swaasth Ek Zaroorat",
+              style: TextStyle(
+                  fontFamily: 'OpenSans',
+                  color: Colors.white.withOpacity(0.7),
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.normal),
+            ),
+            SizedBox(
+              height: 30.0,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                child: Text(
+                  "Available when you are and without the hassle of the waiting room. Connect in minutes with board-certified physicians and doctoral-level therapists online over live video from your smartphone or tablet \n"
+                  "Faster and less expensive than a walk in clinic or ER, you can chat with a doctor virtually 24/7, nights and weekends included. Just like an in-person visit, your doctor will take your history and symptoms, perform an exam, and may recommend treatment - including prescriptions and lab work. They can also provide a doctor’s note, if needed.",
+                  style: TextStyle(
+                      fontFamily: 'OpenSans',
+                      color: Colors.white.withOpacity(0.5),
+                      fontSize: 16.0,
+                      fontStyle: FontStyle.italic),
+                  textAlign: TextAlign.justify,
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

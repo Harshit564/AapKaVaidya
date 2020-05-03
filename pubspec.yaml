@@ -36,6 +36,7 @@ dependencies:
   firebase_storage:
   fluttertoast:
   image_picker:
+  giffy_dialog:
   firebase_core: ^0.4.3+2
   firebase_database:
   shared_preferences: ^0.5.7
@@ -45,11 +46,13 @@ dependencies:
   url_launcher: ^5.4.1
   link: ^1.0.0
   rflutter_alert: ^1.0.3
-  flame:
   http: ^0.12.0+2
   youtube_player_flutter: ^6.0.3+2
-  music_player:
+  music_player: ^0.1.4
   path_provider:
+  flutter_cache_manager:
+  search_page: ^1.2.0
+  google_maps_flutter: ^0.5.11
 
 dev_dependencies:
   flutter_test:

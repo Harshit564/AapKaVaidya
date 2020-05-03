@@ -40,9 +40,9 @@ samples, guidance on mobile development, and a full API reference.
 
 <img src="Screenshots/7.jpeg" width=240>  <img src="Screenshots/8.jpeg" width=240>  <img src="Screenshots/9.jpeg" width=240>
 
-<img src="Screenshots/10.jpeg" width=240>  <img src="Screenshots/11.jpeg" width=240>  <img src="screenshots/12.jpeg" width=240>
+<img src="Screenshots/10.jpeg" width=240>  <img src="Screenshots/11.jpeg" width=240>  <img src="Screenshots/12.jpeg" width=240>
 
-<img src="Screenshots/13.jpeg" width=240>  <img src="Screenshots/14.jpeg" width=240>  <img src="screenshots/15.jpeg" width=240>
+<img src="Screenshots/13.jpeg" width=240>  <img src="Screenshots/14.jpeg" width=240>  <img src="Screenshots/15.jpeg" width=240>
 
 <img src="Screenshots/16.jpeg" width=240>  <img src="Screenshots/18.jpeg" width=240>  <img src="Screenshots/18.jpeg" width=240>
 

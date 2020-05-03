@@ -51,3 +51,7 @@ samples, guidance on mobile development, and a full API reference.
 ## Download our app from the link below:
 
 [Google Drive](https://drive.google.com/file/d/1YFlJbIxzckjHmrvzxY3ist3d6MX3qSzT/view?usp=sharing)
+
+## Link for the Video Demo
+
+[Google Drive](https://drive.google.com/file/d/1O_G5BGP7VAbwcal1Hj8ZJkXe4NjBQ_Mp/view?usp=sharing)

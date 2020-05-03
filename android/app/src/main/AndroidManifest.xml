@@ -18,7 +18,7 @@
         android:label="Aap Ka Vaidya">
 
         <meta-data android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDfo3Ulrk2VF8h_Cd2vyZUIVDYtg6s-ZA8"/>
+            android:value="API_KEY"/>
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"

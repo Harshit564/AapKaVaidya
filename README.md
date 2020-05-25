@@ -1,4 +1,4 @@
-<img src="assets/images/logo.png" align="right" />
+<img src="assets/images/logo.png" align="center" />
 
 
 # Aap Ka Vaidya - Swaasth ek Jaroorat

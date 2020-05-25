@@ -1,3 +1,6 @@
+<img src="assets/images/logo.png" align="right" />
+
+
 # Aap Ka Vaidya - Swaasth ek Jaroorat
 
 => A flutter android application for Easy interaction between patient's and doctors. During pandemic many of the patients are looking to get a regular health check-ups but due lockdowns this seems impossible.

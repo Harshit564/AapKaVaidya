@@ -1,4 +1,4 @@
-<img src="assets/images/logo.png" align="center" alt="Image" height="42" width="42" />
+<img src="assets/images/logo.png" align="right" alt="Image" height="60" width="60" />
 
 
 # Aap Ka Vaidya - Swaasth ek Jaroorat

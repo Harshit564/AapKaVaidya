@@ -7,18 +7,14 @@
 
 ## ✍&nbsp;  About the Project
 
-```
 => A flutter android application for Easy interaction between patient's and doctors. During pandemic many of the patients are looking to get a regular health check-ups but due lockdowns this seems impossible.
-
 
 
 => So the application is build for this problem, it consists of chatbox(static) , login/signup page, cool animations, covid tracker using webview, also addon to this there is a relax zone which comprises of Games and Music,
 
 
-
 => The app uses YouTube API to call the videoplayer to get indulge in streaming youtube videos there, nearby locations is also set using Google Map API.
 
-```
 <br>
 
 ## 📫&nbsp; Getting Started

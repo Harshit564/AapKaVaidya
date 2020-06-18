@@ -73,11 +73,13 @@ If you have any great ideas which can make this project more better, you can mak
 
 ---
 
-### Project Admin
+### ❤️&nbsp; Project Admin
 
-<td align="center"><a href="https://github.com/Harshit564"><img src="https://avatars1.githubusercontent.com/u/47476857?s=400&u=8b1d57f71964ea8821662524e171a16e4fcc5c79&v=4" width="100px;" alt="Harshit"/><br/><sub><b>HARSHIT SINGH</b></sub></a></td>
+<a href="https://github.com/Harshit564"><img src="https://avatars1.githubusercontent.com/u/47476857?s=400&u=8b1d57f71964ea8821662524e171a16e4fcc5c79&v=4" width=150px height=150px /></a>                                                                                         |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|                                                                                                                                        **[Harshit Singh](https://www.linkedin.com/in/harshit-singh-lko//)**                                                                                                                                        |
+|<a href="https://www.linkedin.com/in/harshit-singh-lko"><img src="https://mpng.subpng.com/20180324/vhe/kisspng-linkedin-computer-icons-logo-social-networking-ser-facebook-5ab6ebfe5f5397.2333748215219374063905.jpg" width="32px" height="32px"></a> |
 
-<br>
 
 [![GitHub followers](https://img.shields.io/github/followers/Harshit564?label=Follow&style=social)](https://github.com/Harshit564/)
 
@@ -86,3 +88,16 @@ If you have any great ideas which can make this project more better, you can mak
 ![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)
 
 ---
+### ⚡&nbsp; Mentors
+
+<a href="https://github.com/baquer"><img src="https://avatars2.githubusercontent.com/u/32494694?s=400&u=2ddfc779812f1c4e8757c3caf9dc234bc2787720&v=4" width=150px height=150px /></a>                                                                                         |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|                                                                                                                                        **[Syed Baquer](https://www.linkedin.com/mwlite/in/syed-baquer)**                                                                                                                                        |
+|<a href="https://www.linkedin.com/mwlite/in/syed-baquer"><img src="https://mpng.subpng.com/20180324/vhe/kisspng-linkedin-computer-icons-logo-social-networking-ser-facebook-5ab6ebfe5f5397.2333748215219374063905.jpg" width="32px" height="32px"></a> | 
+
+<br>
+
+<a href="https://github.com/Tanmayvv"><img src="https://avatars2.githubusercontent.com/u/47348351?s=400&u=0e05994e11995b29f6bc983fbb0578c9210ffa23&v=4" width=150px height=150px /><a>                                                                                         |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|                                                                                                                                        **[Tanmay Vijayvargiya](linkedin.com/in/tanmay-vijayvargiya-3b2b201a1/r)**                                                                                                                                        |
+|<a href="linkedin.com/in/tanmay-vijayvargiya-3b2b201a1/"><img src="https://mpng.subpng.com/20180324/vhe/kisspng-linkedin-computer-icons-logo-social-networking-ser-facebook-5ab6ebfe5f5397.2333748215219374063905.jpg" width="32px" height="32px"></a> |

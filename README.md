@@ -7,32 +7,50 @@
 
 ## ✍&nbsp;  About the Project
 
-=> A flutter android application for Easy interaction between patient's and doctors. During pandemic many of the patients are looking to get a regular health check-ups but due lockdowns this seems impossible.
+=> A flutter based application for easy interaction between patient's and doctors. During Pandemic many of the patients are looking to get a regular health check-ups but moving outside in such conditions seems risky.
 
 
-=> So the application is build for this problem, it consists of chatbox(static) , login/signup page, cool animations, covid tracker using webview, also addon to this there is a relax zone which comprises of Games and Music,
+=> So the application is build for this problem, it consists of chatbox with realtime database , login/signup page using firebase google signin and email/password sigin/signup, cool animations using rive , covid tracker with realtime updates , a tracker for nearby ambulance, also addon to this there is a relax zone which comprises of mini games and music to chill out.
 
 
-=> The app uses YouTube API to call the videoplayer to get indulge in streaming youtube videos there, nearby locations is also set using Google Map API.
+=> The app uses YouTube API to call the videoplayer to get indulge in streaming youtube videos there, nearby locations of hospitals is also set using Google Map API.
 
 <br>
 
 ## 📫&nbsp; Getting Started
 
-### To run the application on your local machine:
-  
-=> Open your Git Bash command window and in the root directory type the following commands:
+### To run the application on your local machine :
 
+=> Fork [this](https://github.com/StudentCode-in/AapKaVaidya) repository.
+Click on the <a href="https://github.com/StudentCode-in/AapKaVaidya/"><img src="https://img.icons8.com/ios/24/000000/code-fork.png"></a> symbol at the top right corner.  
+
+=> Open your Git Bash command window and in the root directory type the following commands :
+```bash
     1) git init -initializes the git repository from the GitHub. 
     2) git clone -Clone the repository to your local machine
-=> Open your Android IDE:
-
+      (git clone https://github.com/<your-github-username>/AapKaVaidya)
+```    
+=> Open your Android IDE :
+```bash
     1) Open the file at the root directory
     2) Code your modifications in the project
-
+```
+=> Create a new branch :
+```bash
+    1) git checkout -b <your_branch_name>
+```
+=> Add your changes and commit it out :
+```bash
+    1) git add . -Updates the index using the current content found in the working tree
+    2) git commit -m "your_msg" -Create a new commit containing the current contents of the index with a message
+```
+=> Push your local changes to GitHub Repository :
+```bash
+    1) git push -u origin <your_branch_name>
+```
 <br>
 
-### 🤖&nbsp; Some useful links to learn flutter:
+## 🤖&nbsp; Some useful links to learn flutter:
 
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
@@ -43,30 +61,28 @@ samples, guidance on mobile development, and a full API reference.
 
 <br>
 
-## 📷&nbsp; Screenshots
+## ⚠️&nbsp; Issues:
 
-<img src="Screenshots/1.jpeg" width=240>  <img src="Screenshots/2.jpeg" width=240>  <img src="Screenshots/3.jpeg" width=240>
-
-<img src="Screenshots/4.jpeg" width=240>  <img src="Screenshots/5.jpeg" width=240>  <img src="Screenshots/6.jpeg" width=240>
-
-<img src="Screenshots/7.jpeg" width=240>  <img src="Screenshots/8.jpeg" width=240>  <img src="Screenshots/9.jpeg" width=240>
-
-<img src="Screenshots/10.jpeg" width=240>  <img src="Screenshots/11.jpeg" width=240>  <img src="Screenshots/12.jpeg" width=240>
-
-<img src="Screenshots/13.jpeg" width=240>  <img src="Screenshots/14.jpeg" width=240>  <img src="Screenshots/15.jpeg" width=240>
-
-<img src="Screenshots/16.jpeg" width=240>  <img src="Screenshots/18.jpeg" width=240>  <img src="Screenshots/18.jpeg" width=240>
-
-<img src="Screenshots/19.jpeg" width=240>  <img src="Screenshots/20.jpeg" width=240>  <img src="Screenshots/21.jpeg" width=240>
+Always feel free to file a new issue with a respective title and a detailed description on the [AapKaVaidya](https://github.com/StudentCode-in/AapKaVaidya) repository.
 
 <br>
 
-## 💻&nbsp; Download our app from the link below:
+## 🤝&nbsp; Contribution:
+If you have any great ideas which can make this project more better, you can make changes and send me a Pull Request(PR) with a respective title and description on the [AapKaVaidya](https://github.com/StudentCode-in/AapKaVaidya) repository, I will definitely review your pull request.
 
-[Google Drive](https://drive.google.com/file/d/1YFlJbIxzckjHmrvzxY3ist3d6MX3qSzT/view?usp=sharing)
+
+---
+
+### Project Admin
+
+<td align="center"><a href="https://github.com/Harshit564"><img src="https://avatars1.githubusercontent.com/u/47476857?s=400&u=8b1d57f71964ea8821662524e171a16e4fcc5c79&v=4" width="100px;" alt="Harshit"/><br/><sub><b>HARSHIT SINGH</b></sub></a></td>
 
 <br>
 
-## 📽&nbsp; Link for the Video Demo
+[![GitHub followers](https://img.shields.io/github/followers/Harshit564?label=Follow&style=social)](https://github.com/Harshit564/)
 
-[Google Drive](https://drive.google.com/file/d/1O_G5BGP7VAbwcal1Hj8ZJkXe4NjBQ_Mp/view?usp=sharing)
+[![ForTheBadge built-with-love](https://forthebadge.com/images/badges/built-with-love.svg)](https://GitHub.com/Harshit564/)
+
+![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)
+
+---

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="facebook_app_id">2631500667171258</string>
-    <string name="fb_login_protocol_scheme">fb2631500667171258</string>
+    <string name="app_name">aapkavaiya</string>
+    <string name="facebook_app_id">194116415243716</string>
+    <string name="fb_login_protocol_scheme">fb194116415243716</string>
 </resources>

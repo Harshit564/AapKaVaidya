@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:aapkavaidya/pages/signup_page.dart';
+import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -35,9 +36,80 @@ class _LoginPageState extends State<LoginPage> {
   final GoogleSignIn _googleSignIn = GoogleSignIn();
 
   //facebook login credentials
+FacebookLogin fblogin = new FacebookLogin();
+
 
   FirebaseUser currentUser;
   SharedPreferences prefs;
+
+   Future<FirebaseUser>  _facebookSignInButton() async{
+      prefs = await SharedPreferences.getInstance();
+
+    fblogin.logIn(['email']).then((result) async {
+      if(result.status== FacebookLoginStatus.loggedIn){
+        
+          AuthResult authres = await FirebaseAuth.instance
+         .signInWithCredential(FacebookAuthProvider.getCredential(accessToken: result.accessToken.token));
+          FirebaseUser firebaseUser = authres.user;
+          if (firebaseUser != null) {
+      // Check is already sign up
+      final QuerySnapshot result = await Firestore.instance
+          .collection('users')
+          .where('id', isEqualTo: firebaseUser.uid)
+          .getDocuments();
+      final List<DocumentSnapshot> documents = result.documents;
+      if (documents.length == 0) {
+        // Update data to server if new user
+        Firestore.instance
+            .collection('users')
+            .document(firebaseUser.displayName)
+            .setData({
+          'userName': firebaseUser.displayName,
+          'photoUrl': firebaseUser.photoUrl,
+          'id': firebaseUser.uid,
+          'email': firebaseUser.email,
+          'createdAt': DateTime.now().millisecondsSinceEpoch.toString(),
+          'chattingWith': null
+        });
+
+        // Write data to local
+        currentUser = firebaseUser;
+        await prefs.setString('id', currentUser.uid);
+        await prefs.setString('userName', currentUser.displayName);
+        await prefs.setString('photoUrl', currentUser.photoUrl);
+        await prefs.setString('email', currentUser.email);
+     
+        // Write data to local
+        await prefs.setString('id', documents[0]['id']);
+        await prefs.setString('email', documents[0]['email']);
+        await prefs.setString('userName', documents[0]['nickname']);
+        await prefs.setString('photoUrl', documents[0]['photoUrl']);
+        await prefs.setString('aboutMe', documents[0]['aboutMe']);
+      
+      Fluttertoast.showToast(msg: "Sign in success");
+      this.setState(() {
+        isLoading = false;
+      });
+
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => HomePage(currentUserId: firebaseUser.uid)));
+    } else {
+      Fluttertoast.showToast(msg: "Sign in fail");
+      this.setState(() {
+        isLoading = false;
+      });
+    }
+          }
+      }
+    }).catchError((e){
+      print(e);
+    });
+
+  } 
+
+  
 
   // ignore: missing_return
   Future<FirebaseUser> _googleSignInButton() async {
@@ -364,6 +436,46 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
+
+
+  Widget _facebookButton(){
+    return ButtonTheme(
+      minWidth: 175,
+      child: FlatButton(
+        color: Colors.blue.shade900,
+        splashColor: Colors.white,
+        onPressed: () {
+          _facebookSignInButton();
+        },
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+             Image(
+                  image: AssetImage("assets/images/facebook_logo.png"),
+                  height: 35.0),
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Text(
+                  'Facebook',
+                  style: TextStyle(
+                    fontFamily: 'OpenSans',
+                    fontSize: 20,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+
+  }
   
 
   Widget _buildSignupBtn() {
@@ -504,6 +616,10 @@ class _LoginPageState extends State<LoginPage> {
                                     : Container()),
                           ]),
                         ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        _facebookButton(),
                         SizedBox(
                           height: 20,
                         ),

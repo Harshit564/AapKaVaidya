@@ -5,6 +5,22 @@
 
 <br>
 
+## STUDENT CODE-IN
+
+****About SCI****
+
+Student Code-In is a global program that helps students grow with Open Source Contribution. It is a 2 months long Open-Source initiative which provides you the best platform to improve your skills and abilities by contributing to vast variety of Open Source Projects Projects. In this, all the registered participants would get an exquisite opportunity to interact with the mentors and the Organizing Team. 
+
+[Website](https://scodein.tech/) 
+
+
+<p align="center">
+  <a href="https://scodein.tech/">
+    <img src="https://avatars1.githubusercontent.com/u/63442932?s=200&v=4" alt="Logo">
+  </a>
+    
+<br>
+
 ## ✍&nbsp;  About the Project
 
 => A flutter based application for easy interaction between patient's and doctors. During Pandemic many of the patients are looking to get a regular health check-ups but moving outside in such conditions seems risky.

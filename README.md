@@ -5,18 +5,19 @@
 
 <br>
 
-## STUDENT CODE-IN
+## SCRIPT WINTER OF CODE
 
-****About SCI****
+****About SWOC****
 
-Student Code-In is a global program that helps students grow with Open Source Contribution. It is a 2 months long Open-Source initiative which provides you the best platform to improve your skills and abilities by contributing to vast variety of Open Source Projects Projects. In this, all the registered participants would get an exquisite opportunity to interact with the mentors and the Organizing Team. 
+Script Winter of Code is an open-source program envisioned by the Script Foundation. It aims to bring students into the world of open source development and see the power of unified problem-solving in real time. The projects that we will host have been carefully hand-picked to invigorate creative thinking and encourage collaboration among all participants.
+The students will be guided by experienced mentors throughout their journey. They will learn the skills essential in the world of programming, all the while developing a deep appreciation for the world of open-source. 
 
-[Website](https://scodein.tech/) 
+[Website](https:/swoc.tech//) 
 
 
 <p align="center">
-  <a href="https://scodein.tech/">
-    <img src="https://avatars1.githubusercontent.com/u/63442932?s=200&v=4" alt="Logo">
+  <a href="https://swoc.tech/">
+    <img src="https://avatars0.githubusercontent.com/u/63667500?s=200&v=4" alt="Logo">
   </a>
     
 <br>
@@ -37,8 +38,8 @@ Student Code-In is a global program that helps students grow with Open Source Co
 
 ### To run the application on your local machine :
 
-=> Fork [this](https://github.com/StudentCode-in/AapKaVaidya) repository.
-Click on the <a href="https://github.com/StudentCode-in/AapKaVaidya/"><img src="https://img.icons8.com/ios/24/000000/code-fork.png"></a> symbol at the top right corner.  
+=> Fork [this](https://github.com/Harshit564/AapKaVaidya) repository.
+Click on the <a href="https://github.com/Harshit564/AapKaVaidya/"><img src="https://img.icons8.com/ios/24/000000/code-fork.png"></a> symbol at the top right corner.  
 
 => Open your Git Bash command window and in the root directory type the following commands :
 ```bash
@@ -79,12 +80,12 @@ samples, guidance on mobile development, and a full API reference.
 
 ## ⚠️&nbsp; Issues:
 
-Always feel free to file a new issue with a respective title and a detailed description on the [AapKaVaidya](https://github.com/StudentCode-in/AapKaVaidya) repository.
+Always feel free to file a new issue with a respective title and a detailed description on the [AapKaVaidya](https://github.com/Harshit564/AapKaVaidya) repository.
 
 <br>
 
 ## 🤝&nbsp; Contribution:
-If you have any great ideas which can make this project more better, you can make changes and send me a Pull Request(PR) with a respective title and description on the [AapKaVaidya](https://github.com/StudentCode-in/AapKaVaidya) repository, I will definitely review your pull request.
+If you have any great ideas which can make this project more better, you can make changes and send me a Pull Request(PR) with a respective title and description on the [AapKaVaidya](https://github.com/Harshit564/AapKaVaidya) repository, I will definitely review your pull request.
 
 
 ---
@@ -105,15 +106,3 @@ If you have any great ideas which can make this project more better, you can mak
 
 ---
 ### ⚡&nbsp; Mentors
-
-<a href="https://github.com/baquer"><img src="https://avatars2.githubusercontent.com/u/32494694?s=400&u=2ddfc779812f1c4e8757c3caf9dc234bc2787720&v=4" width=150px height=150px /></a>                                                                                         |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|                                                                                                                                        **[Syed Baquer](https://www.linkedin.com/mwlite/in/syed-baquer)**                                                                                                                                        |
-|<a href="https://www.linkedin.com/mwlite/in/syed-baquer"><img src="https://mpng.subpng.com/20180324/vhe/kisspng-linkedin-computer-icons-logo-social-networking-ser-facebook-5ab6ebfe5f5397.2333748215219374063905.jpg" width="32px" height="32px"></a> | 
-
-<br>
-
-<a href="https://github.com/Tanmayvv"><img src="https://avatars2.githubusercontent.com/u/47348351?s=400&u=0e05994e11995b29f6bc983fbb0578c9210ffa23&v=4" width=150px height=150px /><a>                                                                                         |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|                                                                                                                                        **[Tanmay Vijayvargiya](linkedin.com/in/tanmay-vijayvargiya-3b2b201a1/r)**                                                                                                                                        |
-|<a href="linkedin.com/in/tanmay-vijayvargiya-3b2b201a1/"><img src="https://mpng.subpng.com/20180324/vhe/kisspng-linkedin-computer-icons-logo-social-networking-ser-facebook-5ab6ebfe5f5397.2333748215219374063905.jpg" width="32px" height="32px"></a> |

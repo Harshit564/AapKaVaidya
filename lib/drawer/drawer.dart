@@ -15,12 +15,48 @@ class GuillotineMenu extends StatefulWidget {
   _GuillotineMenuState createState() => _GuillotineMenuState();
 }
 
-class _GuillotineMenuState extends State<GuillotineMenu> {
+class _GuillotineMenuState extends State<GuillotineMenu>
+    with SingleTickerProviderStateMixin {
+  final GlobalKey _menuIconkey = GlobalKey();
+
   final Color _menuBg = Colors.black54;
+
+  Animation<double> _menuAnimation;
+
+  Animation<double> _toolbarTitleFadeAnimation;
+
+  AnimationController _guillotineMenuAnimationController;
 
   @override
   void initState() {
     super.initState();
+
+/*
+This is to check the offset of the menu Icon in top left corner.
+    // WidgetsBinding.instance.addPostFrameCallback(_getPosition);
+*/
+
+    _guillotineMenuAnimationController = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 750),
+    )..addListener(() {
+        setState(() {});
+      });
+
+    // Menu Animation
+
+    _menuAnimation = Tween(begin: -pi / 2, end: 0.0).animate(CurvedAnimation(
+        parent: _guillotineMenuAnimationController,
+        curve: Curves.bounceOut,
+        reverseCurve: Curves.bounceIn));
+
+    // Toolbar Title Transition
+
+    _toolbarTitleFadeAnimation =
+        Tween(begin: 1.0, end: 0.0).animate(_guillotineMenuAnimationController);
+
+    // Show animation whenever the drawer is opened
+    _onMenuIconClick();
   }
 
   void _showErrorSnackBar() {
@@ -34,6 +70,21 @@ class _GuillotineMenuState extends State<GuillotineMenu> {
   @override
   void dispose() {
     super.dispose();
+    _guillotineMenuAnimationController.dispose();
+  }
+
+  void _onMenuIconClick() {
+    if (_isMenuVisible()) {
+      _guillotineMenuAnimationController.reverse();
+    } else {
+      _guillotineMenuAnimationController.forward();
+    }
+  }
+
+  bool _isMenuVisible() {
+    final AnimationStatus status = _guillotineMenuAnimationController.status;
+    return status == AnimationStatus.completed ||
+        status == AnimationStatus.forward;
   }
 
   Future<bool> _onSettingsButtonsPressed(BuildContext context) {
@@ -103,47 +154,108 @@ class _GuillotineMenuState extends State<GuillotineMenu> {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: _menuBg,
-      child: SafeArea(
-        child: Container(
-          height: double.infinity,
-          width: double.infinity,
-          child: Row(
-            children: <Widget>[
-              Expanded(
-                flex: 2,
-                child: _toolbar(),
+    return Stack(
+      children: [
+        SafeArea(
+          child: Transform.rotate(
+            angle: _menuAnimation.value,
+            origin: Offset(32.0, 50.0),
+            alignment: Alignment.topLeft,
+            child: Material(
+              color: _menuBg,
+              child: SafeArea(
+                child: Container(
+                  height: double.infinity,
+                  width: double.infinity,
+                  child: Row(
+                    children: <Widget>[
+                      Expanded(
+                        flex: 2,
+                        child: _toolbar(),
+                      ),
+                      Expanded(
+                        flex: 8,
+                        child: _menuItems(),
+                      ),
+                    ],
+                  ),
+                ),
               ),
-            ],
+            ),
           ),
         ),
-      ),
-//      ),
-    );
-  }
-
-  Widget _toolbar() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        _toolbarTitle(),
-        _menuItems(),
+        Visibility(
+          visible: !_isMenuVisible(),
+          child: Positioned(
+            top: 110,
+            child: Container(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 100, horizontal: 20),
+                // Any other animation or text can be added here
+                child: Text(
+                  'TAP ON THE MENU ICON TO VIEW THE ITEMS',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ),
+          ),
+        ),
       ],
     );
   }
 
+  Widget _toolbar() {
+    return RotatedBox(
+      quarterTurns: 1,
+      child: Container(
+        // padding: const EdgeInsets.only(left: 16),
+        child: Column(
+          children: [
+            Row(
+              children: <Widget>[_toolbarIcon(), _toolbarTitle()],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _toolbarIcon() {
+    return Padding(
+      padding: EdgeInsets.only(left: 16),
+      child: IconButton(
+        key: _menuIconkey,
+        icon: Icon(
+          Icons.menu,
+          color: Colors.white,
+        ),
+        onPressed: () => _onMenuIconClick(),
+      ),
+    );
+  }
+
   Widget _toolbarTitle() {
-    return Container(
-      margin: const EdgeInsets.only(left: 36),
-      child: Text(
-        "Activity",
-        style: TextStyle(
-            fontFamily: 'OpenSans',
-            color: Colors.white,
-            fontSize: 24,
-            letterSpacing: 2.0,
-            fontWeight: FontWeight.bold),
+    return FadeTransition(
+      opacity: _toolbarTitleFadeAnimation,
+      child: Container(
+        margin: const EdgeInsets.only(left: 16),
+        child: Text(
+          "Activity",
+          style: TextStyle(
+              fontFamily: 'OpenSans',
+              color: Colors.white,
+              fontSize: 24,
+              letterSpacing: 2.0,
+              fontWeight: FontWeight.bold),
+        ),
       ),
     );
   }

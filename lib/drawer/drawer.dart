@@ -15,46 +15,12 @@ class GuillotineMenu extends StatefulWidget {
   _GuillotineMenuState createState() => _GuillotineMenuState();
 }
 
-class _GuillotineMenuState extends State<GuillotineMenu>
-    with SingleTickerProviderStateMixin {
-  final GlobalKey _menuIconkey = GlobalKey();
-
+class _GuillotineMenuState extends State<GuillotineMenu> {
   final Color _menuBg = Colors.black54;
-
-  Animation<double> _menuAnimation;
-
-  Animation<double> _toolbarTitleFadeAnimation;
-
-  AnimationController _guillotineMenuAnimationController;
 
   @override
   void initState() {
     super.initState();
-
-
-/*
-This is to check the offset of the menu Icon in top left corner.
-    // WidgetsBinding.instance.addPostFrameCallback(_getPosition);
-*/
-
-    _guillotineMenuAnimationController = AnimationController(
-      vsync: this,
-      duration: Duration(milliseconds: 750),
-    )..addListener(() {
-        setState(() {});
-      });
-
-    // Menu Animation
-
-    _menuAnimation = Tween(begin: -pi / 2, end: 0.0).animate(CurvedAnimation(
-        parent: _guillotineMenuAnimationController,
-        curve: Curves.bounceOut,
-        reverseCurve: Curves.bounceIn));
-
-    // Toolbar Title Transition
-
-    _toolbarTitleFadeAnimation =
-        Tween(begin: 1.0, end: 0.0).animate(_guillotineMenuAnimationController);
   }
 
   void _showErrorSnackBar() {
@@ -65,27 +31,10 @@ This is to check the offset of the menu Icon in top left corner.
     );
   }
 
-
   @override
   void dispose() {
     super.dispose();
-    _guillotineMenuAnimationController.dispose();
   }
-
-  void _onMenuIconClick() {
-    if (_isMenuVisible()) {
-      _guillotineMenuAnimationController.reverse();
-    } else {
-      _guillotineMenuAnimationController.forward();
-    }
-  }
-
-  bool _isMenuVisible() {
-    final AnimationStatus status = _guillotineMenuAnimationController.status;
-    return status == AnimationStatus.completed ||
-        status == AnimationStatus.forward;
-  }
-
 
   Future<bool> _onSettingsButtonsPressed(BuildContext context) {
     return showDialog(
@@ -99,24 +48,24 @@ This is to check the offset of the menu Icon in top left corner.
               textAlign: TextAlign.center,
               style: TextStyle(
                   fontFamily: 'OpenSans',
-                color: Colors.white,
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold
-              ),
+                  color: Colors.white,
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold),
             ),
             content: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
                 height: 60,
                 child: Center(
-                  child: Text('Do you want to know about the current status of Pandemic?',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontFamily: 'OpenSans',
-                    color: Colors.grey,
-                    fontWeight: FontWeight.normal,
-                    fontSize: 16.0
-                  ),),
+                  child: Text(
+                    'Do you want to know about the current status of Pandemic?',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontFamily: 'OpenSans',
+                        color: Colors.grey,
+                        fontWeight: FontWeight.normal,
+                        fontSize: 16.0),
+                  ),
                 ),
               ),
             ),
@@ -129,8 +78,7 @@ This is to check the offset of the menu Icon in top left corner.
                           style: TextStyle(
                               fontFamily: 'OpenSans',
                               color: Colors.greenAccent,
-                              fontSize: 20.0
-                          )),
+                              fontSize: 20.0)),
                     ),
                     url: 'https://www.orfonline.org/covid19-tracker/',
                     onError: _showErrorSnackBar,
@@ -144,8 +92,7 @@ This is to check the offset of the menu Icon in top left corner.
                         style: TextStyle(
                             fontFamily: 'OpenSans',
                             color: Colors.greenAccent,
-                            fontSize: 20.0
-                        )),
+                            fontSize: 20.0)),
                   )
                 ],
               ),
@@ -154,74 +101,49 @@ This is to check the offset of the menu Icon in top left corner.
         });
   }
 
-
   @override
   Widget build(BuildContext context) {
-    return Transform.rotate(
-      angle: _menuAnimation.value,
-      origin: Offset(32.0, 50.0),
-      alignment: Alignment.topLeft,
-      child: Material(
-        color: _menuBg,
-        child: SafeArea(
-          child: Container(
-            height: double.infinity,
-            width: double.infinity,
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  flex: 2,
-                  child: _toolbar(),
-                ),
-                Expanded(
-                  flex: 8,
-                  child: _menuItems(),
-                )
-              ],
-            ),
+    return Material(
+      color: _menuBg,
+      child: SafeArea(
+        child: Container(
+          height: double.infinity,
+          width: double.infinity,
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                flex: 2,
+                child: _toolbar(),
+              ),
+            ],
           ),
         ),
       ),
+//      ),
     );
   }
 
   Widget _toolbar() {
-    return RotatedBox(
-      quarterTurns: 1,
-      child: Container(
-        // padding: const EdgeInsets.only(left: 16),
-        child: Row(
-          children: <Widget>[_toolbarIcon(), _toolbarTitle()],
-        ),
-      ),
-    );
-  }
-
-  Widget _toolbarIcon() {
-    return IconButton(
-      key: _menuIconkey,
-      icon: Icon(
-        Icons.menu,
-        color: Colors.white,
-      ),
-      onPressed: () => _onMenuIconClick(),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _toolbarTitle(),
+        _menuItems(),
+      ],
     );
   }
 
   Widget _toolbarTitle() {
-    return FadeTransition(
-      opacity: _toolbarTitleFadeAnimation,
-      child: Container(
-        margin: const EdgeInsets.only(left: 16),
-        child: Text(
-          "Activity",
-          style: TextStyle(
-              fontFamily: 'OpenSans',
-              color: Colors.white,
-              fontSize: 24,
-              letterSpacing: 2.0,
-              fontWeight: FontWeight.bold),
-        ),
+    return Container(
+      margin: const EdgeInsets.only(left: 36),
+      child: Text(
+        "Activity",
+        style: TextStyle(
+            fontFamily: 'OpenSans',
+            color: Colors.white,
+            fontSize: 24,
+            letterSpacing: 2.0,
+            fontWeight: FontWeight.bold),
       ),
     );
   }
@@ -321,8 +243,7 @@ This is to check the offset of the menu Icon in top left corner.
                   color: Colors.white,
                 ),
               ),
-              onTap: () => _onSettingsButtonsPressed(context)
-          ),
+              onTap: () => _onSettingsButtonsPressed(context)),
           Divider(
             thickness: 2.0,
             color: Colors.white,
@@ -356,12 +277,13 @@ This is to check the offset of the menu Icon in top left corner.
             ),
             onTap: () => _launchgmail(),
 
-              // Update the state of the app.
+            // Update the state of the app.
           ),
         ],
       ),
     );
   }
+
   _launchgmail() async {
     const url =
         'mailto:harshitsingh15967@gmail.com?subject=Feedback&body=Feedback for Our Support';

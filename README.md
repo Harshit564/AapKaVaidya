@@ -5,7 +5,7 @@
 
 <br>
 
-## SCRIPT WINTER OF CODE
+<!-- ## SCRIPT WINTER OF CODE
 
 ****About SWOC****
 
@@ -20,7 +20,7 @@ The students will be guided by experienced mentors throughout their journey. The
     <img src="https://avatars0.githubusercontent.com/u/63667500?s=200&v=4" alt="Logo">
   </a>
     
-<br>
+<br> -->
 
 ## ✍&nbsp;  About the Project
 
